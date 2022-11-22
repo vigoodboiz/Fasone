@@ -1,3 +1,20 @@
+<?php
+//require "../controller/save-checkout.php"
+
+require "../connect.php";
+if (isset($_POST['save'])) {
+    $name = $_POST['name'];
+    $user = $_POST['user'];
+    $email = $_POST['email'];
+    $address = $_POST['address'];
+    $numberphone = $_POST['numberphone'];
+    $sql_new = "INSERT INTO khach_hang VALUES (NULL,'$name','$address','$numberphone','$email','$user') ";
+    $reult = $conn->exec($sql_new);
+
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,18 +83,18 @@
         </div>
         <div class="col-md-8 order-md-1">
             <h4 class="mb-3">Địa chỉ thanh toán</h4>
-            <form class="needs-validation" novalidate="">
+            <form class="needs-validation" novalidate="" method="post">
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                            <label for="firstName">Họ</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                            <label for="firstName">Họ và tên</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required="" name="name">
                         <div class="invalid-feedback"> Tên hợp lệ là bắt buộc. </div>
                     </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="lastName">Tên</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-                        <div class="invalid-feedback"> Tên hợp lệ là bắt buộc. </div>
-                    </div>
+<!--                    <div class="col-md-6 mb-3">-->
+<!--                        <label for="lastName">Tên</label>-->
+<!--                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">-->
+<!--                        <div class="invalid-feedback"> Tên hợp lệ là bắt buộc. </div>-->
+<!--                    </div>-->
                 </div>
                 <div class="mb-3">
                     <label for="username">Username</label>
@@ -85,23 +102,23 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">@</span>
                         </div>
-                        <input type="text" class="form-control" id="username" placeholder="Username" required="">
+                        <input type="text" class="form-control" id="username" placeholder="Username" required="" name="user">
                         <div class="invalid-feedback" style="width: 100%;"> Your username is required. </div>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                    <input type="email" class="form-control" id="email" placeholder="you@example.com" name="email">
                     <div class="invalid-feedback"> Please enter a valid email address for shipping updates. </div>
                 </div>
                 <div class="mb-3">
                     <label for="address">Địa chỉ</label>
-                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
+                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="" name="address">
                     <div class="invalid-feedback"> Vui lòng nhập địa chỉ vận chuyển của bạn. </div>
                 </div>
                 <div class="mb-3">
                     <label for="address">Số điện thoại</label>
-                    <input type="text" class="form-control" id="numberphone" placeholder="0123456789" required="">
+                    <input type="text" class="form-control" id="numberphone" placeholder="0123456789" required="" name="numberphone">
                     <div class="invalid-feedback"> Vui lòng nhập số điện thoại của bạn. </div>
                 </div>
 <!--                <div class="mb-3">-->
@@ -132,14 +149,14 @@
 <!--                    </div>-->
 <!--                </div>-->
                 <hr class="mb-4">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="same-address">
-                    <label class="custom-control-label" for="same-address">Địa chỉ giao hàng giống với địa chỉ thanh toán của tôi</label>
-                </div>
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="save-info">
-                    <label class="custom-control-label" for="save-info">Lưu thông tin này cho lần sau</label>
-                </div>
+<!--                <div class="custom-control custom-checkbox">-->
+<!--                    <input type="checkbox" class="custom-control-input" id="same-address">-->
+<!--                    <label class="custom-control-label" for="same-address">Địa chỉ giao hàng giống với địa chỉ thanh toán của tôi</label>-->
+<!--                </div>-->
+<!--                <div class="custom-control custom-checkbox">-->
+<!--                    <input type="checkbox" class="custom-control-input" id="save-info">-->
+<!--                    <label class="custom-control-label" for="save-info">Lưu thông tin này cho lần sau</label>-->
+<!--                </div>-->
                 <hr class="mb-4">
                 <h4 class="mb-3">Payment</h4>
                 <div class="d-block my-3">
@@ -156,33 +173,33 @@
                         <label class="custom-control-label" for="paypal">Thanh toán khi nhận hàng</label>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="cc-name">Name on card</label>
-                        <input type="text" class="form-control" id="cc-name" placeholder="" required="">
-                        <small class="text-muted">Tên đầy đủ như hiển thị trên thẻ</small>
-                        <div class="invalid-feedback"> Tên trên thẻ là bắt buộc </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="cc-number">Credit card number</label>
-                        <input type="text" class="form-control" id="cc-number" placeholder="" required="">
-                        <div class="invalid-feedback"> Số thẻ tín dụng là bắt buộc </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3 mb-3">
-                        <label for="cc-expiration">hết hạn</label>
-                        <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
-                        <div class="invalid-feedback"> Yêu cầu ngày hết hạn </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="cc-cvv">CVV</label>
-                        <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
-                        <div class="invalid-feedback"> Yêu cầu mã bảo mật </div>
-                    </div>
-                </div>
+<!--                <div class="row">-->
+<!--                    <div class="col-md-6 mb-3">-->
+<!--                        <label for="cc-name">Name on card</label>-->
+<!--                        <input type="text" class="form-control" id="cc-name" placeholder="" required="">-->
+<!--                        <small class="text-muted">Tên đầy đủ như hiển thị trên thẻ</small>-->
+<!--                        <div class="invalid-feedback"> Tên trên thẻ là bắt buộc </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-6 mb-3">-->
+<!--                        <label for="cc-number">Credit card number</label>-->
+<!--                        <input type="text" class="form-control" id="cc-number" placeholder="" required="">-->
+<!--                        <div class="invalid-feedback"> Số thẻ tín dụng là bắt buộc </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="col-md-3 mb-3">-->
+<!--                        <label for="cc-expiration">hết hạn</label>-->
+<!--                        <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">-->
+<!--                        <div class="invalid-feedback"> Yêu cầu ngày hết hạn </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-3 mb-3">-->
+<!--                        <label for="cc-cvv">CVV</label>-->
+<!--                        <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">-->
+<!--                        <div class="invalid-feedback"> Yêu cầu mã bảo mật </div>-->
+<!--                    </div>-->
+<!--                </div>-->
                 <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Tiếp tục thanh toán</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit" name="save">Tiếp tục thanh toán</button>
             </form>
         </div>
     </div>
