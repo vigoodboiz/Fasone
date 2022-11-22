@@ -2,6 +2,12 @@
 //require "../controller/save-checkout.php"
 
 require "../connect.php";
+session_start();
+$tong = 0;
+for ($i = 0; $i < sizeof($_SESSION['giohang']); $i++) {
+    $tt = $_SESSION['giohang'][$i][2] * $_SESSION['giohang'][$i][3];
+    $tong += $tt;
+}
 if (isset($_POST['save'])) {
     $name = $_POST['name'];
     $user = $_POST['user'];
@@ -10,6 +16,10 @@ if (isset($_POST['save'])) {
     $numberphone = $_POST['numberphone'];
     $sql_new = "INSERT INTO khach_hang VALUES (NULL,'$name','$address','$numberphone','$email','$user') ";
     $reult = $conn->exec($sql_new);
+    $ngaymua = date('Y-m-d');
+    $total = $tong;
+    $sql_new2="INSERT INTO `orders` (`id_oders`, `ngaymua`, `sanpham`, `ma_khach_hang`, `total`, `status`, `hinh_thuc_thanh_toan`) VALUES (NULL, '$ngaymua', NULL, NULL, '$tong', '1', 'Tiền mặt')";
+    $reult2 = $conn->exec($sql_new2);
 
 }
 
@@ -30,6 +40,7 @@ if (isset($_POST['save'])) {
 
 </head>
 <body>
+
 <div class="container">
     <h1 style="text-align: center;margin-bottom: 50px;padding-top: 50px">Thanh Toán</h1>
     <div class="row">
@@ -69,7 +80,15 @@ if (isset($_POST['save'])) {
                 </li>
                 <li class="list-group-item d-flex justify-content-between">
                     <span>Total (USD)</span>
-                    <strong>$20</strong>
+                    <strong><?php if(isset($_SESSION['giohang'])&&(is_array($_SESSION['giohang']))){
+                            if(sizeof($_SESSION['giohang'])>0) {
+                                $tong = 0;
+                                for ($i = 0; $i < sizeof($_SESSION['giohang']); $i++) {
+                                    $tt = $_SESSION['giohang'][$i][2] * $_SESSION['giohang'][$i][3];
+                                    $tong += $tt;
+                                }
+                            }}
+                        echo $tong ?></strong>
                 </li>
             </ul>
             <form class="card p-2">
