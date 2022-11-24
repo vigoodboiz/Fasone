@@ -8,7 +8,7 @@ include_once "../../model/user.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../src/font/fontawesome-free-6.2.1-web/css/all.min.css">
     <link rel="stylesheet" href="../../src/css/main.css">
     <link rel="stylesheet" href="../../src/css/user.css">
     <title>User</title>
@@ -51,7 +51,7 @@ include_once "../../model/user.php";
                     <th>User email</th>
                     <th>Password</th>
                     <th>User tell</th>
-                    <th>Address</th>
+                    <th>User</th>
                     <th>User role</th>
                     <th>Action</th>
                 </tr>
@@ -61,11 +61,11 @@ include_once "../../model/user.php";
                     <tr>
                         <td><?php echo $key + 1?></td>
                         <td><?php echo $value["name"]?></td>
-                        <td><img src="../../src/image/<?php echo $value["avatar"]?>" alt=""></td>
+                        <td><img src="../../src/image/<?php echo $value["avt"]?>" alt=""></td>
                         <td><?php echo $value["email"]?></td>
                         <td><?php echo $value["password"]?></td>
                         <td><?php echo $value["tell"]?></td>
-                        <td><?php echo $value["address"]?></td>
+                        <td><?php echo $value["user"]?></td>
                         <td><?php
                         if($value["role"] == 1){
                             echo "Khách hàng";
@@ -76,8 +76,8 @@ include_once "../../model/user.php";
                         }
                         ?></td>
                         <td class="conten-action">
-                            <a href="../view/main-view/update-user.php?id <?php echo $value["id"]?>"><button>Update users</button></a>
-                            <a href="./controller/delete-user.php?id <?php echo $value["id"]?>" onclick="if (!confirm('Bạn có muốn xóa sản người dùng không?')) { return false }"><button>Delete users</button></a>
+                            <a href="../view/main-view/update-user.php?id=<?php echo $value["id"]?>"><button>Update</button></a>
+                            <a href="../../controller/delete-user.php?id=<?php echo $value["id"]?>" onclick="if (!confirm('Bạn có muốn xóa sản người dùng không?')) { return false }"><button>Delete</button></a>
                         </td>
                     </tr>
                     <?php endforeach?>

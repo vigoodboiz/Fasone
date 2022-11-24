@@ -4,13 +4,13 @@ function connect($query){
     $stmt = $connection -> prepare($query);
     $stmt -> execute();
     return $stmt;
-}
+};
 function getAll($query){
     $result = connect($query) -> fetchAll();
     return $result;
-}
+};
 function getOne($query){
     $result = connect($query) -> fetch();
     return $result;
-}
+};
 ?>

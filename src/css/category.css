@@ -38,6 +38,15 @@
     border-radius: 5px;
     padding-left: 5px;
 }
+.product-form form button{
+    outline: none;
+    border: none;
+    background: transparent;
+    font-size: 23px;
+}
+.product-form form button:hover {
+    color: var(--color);
+}
 table{
     width: 100%;
     border-collapse: collapse;
@@ -60,9 +69,9 @@ table td img{
     padding-left: 10px;
 }
 .conten-action button{
-    width: 170px;
+    width: 100px;
     height: 50px;
-    font-size: 19px;
+    font-size: 15px;
     font-weight: 400;
     color: var(--color);
     margin: 10px 20px;

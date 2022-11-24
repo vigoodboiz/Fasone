@@ -8,8 +8,8 @@
             <p><span class="span1">Xin chào, </span><span>Nguyễn Ngọc Vĩ</span></p>
         </div>
         <div class="conten-v">
-            <a href="#"><button<i class="fa-solid fa-user" aria-hidden="true"></i>Profile</button></a><br>
-            <a href="../../controller/logout.php"><button<i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>Logout</button></a>
+            <a href="#"><i class="fa-solid fa-user" aria-hidden="true"></i> Profile</a><br>
+            <a href="../../controller/logout.php"><i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i> Logout</a>
         </div>
     </div>
 </header>

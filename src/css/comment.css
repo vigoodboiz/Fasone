@@ -23,9 +23,9 @@ table td img{
     padding-left: 10px;
 }
 .conten-action button{
-    width: 170px;
+    width: 100px;
     height: 50px;
-    font-size: 19px;
+    font-size: 15px;
     font-weight: 400;
     color: var(--color);
     margin: 10px 20px;

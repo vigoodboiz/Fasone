@@ -115,4 +115,16 @@ header{
     display: inline-block;
     text-align: right;
 }
+/* .conten-v a{
+    display: flex;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--color);
+    font-size: 20px;
+}
+
+.conten-v a:hover {
+    color: grey;
+} */
 /* end */
