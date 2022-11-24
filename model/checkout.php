@@ -2,12 +2,16 @@
 //require "../controller/save-checkout.php"
 
 require "../connect.php";
-session_start();
+require "cart.php";
+require "../controller/save-checkout.php";
 $tong = 0;
+$tensp = "";
 for ($i = 0; $i < sizeof($_SESSION['giohang']); $i++) {
     $tt = $_SESSION['giohang'][$i][2] * $_SESSION['giohang'][$i][3];
     $tong += $tt;
+
 }
+
 if (isset($_POST['save'])) {
     $name = $_POST['name'];
     $user = $_POST['user'];
@@ -18,6 +22,7 @@ if (isset($_POST['save'])) {
     $reult = $conn->exec($sql_new);
     $ngaymua = date('Y-m-d');
     $total = $tong;
+
     $sql_new2="INSERT INTO `orders` (`id_oders`, `ngaymua`, `sanpham`, `ma_khach_hang`, `total`, `status`, `hinh_thuc_thanh_toan`) VALUES (NULL, '$ngaymua', NULL, NULL, '$tong', '1', 'Tiền mặt')";
     $reult2 = $conn->exec($sql_new2);
 
@@ -25,6 +30,9 @@ if (isset($_POST['save'])) {
 
 
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,6 +51,7 @@ if (isset($_POST['save'])) {
 
 <div class="container">
     <h1 style="text-align: center;margin-bottom: 50px;padding-top: 50px">Thanh Toán</h1>
+    <p> hahaha <?php echo $tensp ?> </p>
     <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -80,14 +89,7 @@ if (isset($_POST['save'])) {
                 </li>
                 <li class="list-group-item d-flex justify-content-between">
                     <span>Total (USD)</span>
-                    <strong><?php if(isset($_SESSION['giohang'])&&(is_array($_SESSION['giohang']))){
-                            if(sizeof($_SESSION['giohang'])>0) {
-                                $tong = 0;
-                                for ($i = 0; $i < sizeof($_SESSION['giohang']); $i++) {
-                                    $tt = $_SESSION['giohang'][$i][2] * $_SESSION['giohang'][$i][3];
-                                    $tong += $tt;
-                                }
-                            }}
+                    <strong> <?php
                         echo $tong ?></strong>
                 </li>
             </ul>

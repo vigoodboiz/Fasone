@@ -72,55 +72,6 @@ function showgiohang(){
         }
     }
 }
-function xem_gio_hang()
-{
-    $gio_hang=$this->layGioHang();
-    if($gio_hang) //Nếu có giỏ hàng
-    {
-        $gio_hang_thuc_don=array();
-        $gio_hang_mon_an=array();
-        foreach($gio_hang as $key=>$value)
-        {
-            $gio_hang_mon_an[$key]=$value;
-        }
-        if($gio_hang_mon_an) //Nếu có chọn món
-        {
-            $_SESSION['gio_hang_mon_an'] =$gio_hang_mon_an;
-            $ds_san_pham =   $this->lay_thong_tin_san_pham($gio_hang_mon_an);
-        }
-    }
-//
-//    $view = 'views/checkout/v_checkout.php';
-//    $banner = "Check out";
-//    include('templates/frontend/checkout/layout.php');
-}
-function layGioHang()
-{
-    if(isset($_SESSION['gioHang']))
-        return $_SESSION['gioHang'];
-    else
-        return false;
-}
-
-function lay_thong_tin_san_pham($san_pham)
-{
-    $ma_mon=array();
-    foreach($san_pham as $key=>$value)
-    {
-        $ma_mon[]=$key;
-    }
-    $ma_mon=implode(",",$ma_mon);
-    include_once('models/m_san_pham.php');
-    $m_mon_an=new M_san_pham();
-    $ds_mon_an=$m_mon_an->lay_san_pham_cho_gio_hang($ma_mon);
-    $ds_mon_an_gio_hang=array(); //Ðua số lượng vào $ds_mon_an
-    foreach($ds_mon_an as $item)
-    {
-        $item->so_luong=$san_pham[$item->ma_san_pham];
-        $ds_mon_an_gio_hang[]=$item;
-    }
-    return $ds_mon_an_gio_hang;
-}
 
 
 
