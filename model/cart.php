@@ -13,6 +13,7 @@ if(isset($_POST['addcart'])&&($_POST['addcart'])){
     $tensp=$_POST['name'];
     $gia=$_POST['gia'];
     $soluong=$_POST['soluong'];
+    $id = $_POST['id'];
 
     //kiem tra sp co trong gio hang hay khong?
 
@@ -32,7 +33,7 @@ if(isset($_POST['addcart'])&&($_POST['addcart'])){
     //neu khong trung sp trong gio hang thi them moi
     if($fl==0){
         //them moi sp vao gio hang
-        $sp=[$hinh,$tensp,$gia,$soluong];
+        $sp=[$hinh,$tensp,$gia,$soluong,$id];
         $_SESSION['giohang'][]=$sp;
     }
 
