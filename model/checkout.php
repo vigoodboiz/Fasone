@@ -1,35 +1,36 @@
 <?php
-//require "../controller/save-checkout.php"
-
-require "../connect.php";
-require "cart.php";
-require "../controller/save-checkout.php";
-$tong = 0;
-$tensp = "";
-for ($i = 0; $i < sizeof($_SESSION['giohang']); $i++) {
-    $tt = $_SESSION['giohang'][$i][2] * $_SESSION['giohang'][$i][3];
-    $tong += $tt;
-
-}
-
-if (isset($_POST['save'])) {
-    $name = $_POST['name'];
-    $user = $_POST['user'];
-    $email = $_POST['email'];
-    $address = $_POST['address'];
-    $numberphone = $_POST['numberphone'];
-    $sql_new = "INSERT INTO khach_hang VALUES (NULL,'$name','$address','$numberphone','$email','$user') ";
-    $reult = $conn->exec($sql_new);
-    $ngaymua = date('Y-m-d');
-    $total = $tong;
-
-    $sql_new2="INSERT INTO `orders` (`id_oders`, `ngaymua`, `sanpham`, `ma_khach_hang`, `total`, `status`, `hinh_thuc_thanh_toan`) VALUES (NULL, '$ngaymua', NULL, NULL, '$tong', '1', 'Tiền mặt')";
-    $reult2 = $conn->exec($sql_new2);
-
-}
-
-
-?>
+require "../controller/save-checkout.php"
+////require "../controller/save-checkout.php"
+//
+//require "../connect.php";
+//require "cart.php";
+//require "../controller/save-checkout.php";
+//$tong = 0;
+//$tensp = "";
+//for ($i = 0; $i < sizeof($_SESSION['giohang']); $i++) {
+//    $tt = $_SESSION['giohang'][$i][2] * $_SESSION['giohang'][$i][3];
+//    $tong += $tt;
+//
+//}
+//
+//if (isset($_POST['save'])) {
+//    $name = $_POST['name'];
+//    $user = $_POST['user'];
+//    $email = $_POST['email'];
+//    $address = $_POST['address'];
+//    $numberphone = $_POST['numberphone'];
+//    $sql_new = "INSERT INTO khach_hang VALUES (NULL,'$name','$address','$numberphone','$email','$user') ";
+//    $reult = $conn->exec($sql_new);
+//    $ngaymua = date('Y-m-d');
+//    $total = $tong;
+//
+//    $sql_new2="INSERT INTO `orders` (`id_oders`, `ngaymua`, `sanpham`, `ma_khach_hang`, `total`, `status`, `hinh_thuc_thanh_toan`) VALUES (NULL, '$ngaymua', NULL, NULL, '$tong', '1', 'Tiền mặt')";
+//    $reult2 = $conn->exec($sql_new2);
+//
+//}
+//
+//
+//?>
 
 
 
@@ -51,7 +52,7 @@ if (isset($_POST['save'])) {
 
 <div class="container">
     <h1 style="text-align: center;margin-bottom: 50px;padding-top: 50px">Thanh Toán</h1>
-    <p> hahaha <?php echo $tensp ?> </p>
+
     <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
