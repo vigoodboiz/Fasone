@@ -33,20 +33,27 @@ if (isset($_POST['save'])) {
     $numberphone = $_POST['numberphone'];
     $sql_new = "INSERT INTO khach_hang VALUES (NULL,'$name','$address','$numberphone','$email','$user') ";
     $reult = $conn->exec($sql_new);
+    $last_id_khach_hang = $conn->lastInsertId();
+//    echo $last_id_khach_hang;
     $ngaymua = date('Y-m-d');
     $total = $tong;
+    $sql_new2 = "INSERT INTO `oders` (`id_oders`, `ngaymua`,  `id_khach_hang`, `total`, `status`, `hinh_thuc_thanh_toan`) VALUES (NULL, '$ngaymua',  '$last_id_khach_hang', '$tong', '1', 'Tiền mặt')";
+    $reult2 = $conn->exec($sql_new2);
+    $last_id_oders = $conn->lastInsertId();
 
     foreach($_SESSION['giohang'] as $product) {
-        echo $product[1]."</br>";
+//        echo $product[1]."</br>";
 //        die();
-        $query = "INSERT INTO `oder_detail` (`id_oder_detail`, `id_oders`, `id_sanpham`, `sanpham`, `soluong`, `price`) VALUES (NULL, '1', '$product[4]', '$product[1]', '$product[3]', '$product[2]')";
+        $query = "INSERT INTO `oder_detail` (`id_oder_detail`, `id_oders`, `id_sanpham`, `sanpham`, `soluong`, `price`) VALUES (NULL, '$last_id_oders', '$product[4]', '$product[1]', '$product[3]', '$product[2]')";
         $row = $conn->exec($query);
-        $id_oder_detail = pdo_execute_get_id($query);
-        echo $id_oder_detail;
+
+        $last_id_oder_detail = $conn->lastInsertId();
+
+//        echo $last_id_oder_detail;
 
     }
-    $sql_new2 = "INSERT INTO `orders` (`id_oders`, `ngaymua`,  `id_khach_hang`, `total`, `status`, `hinh_thuc_thanh_toan`) VALUES (NULL, '$ngaymua',  '1', '$tong', '1', 'Tiền mặt')";
-    $reult2 = $conn->exec($sql_new2);
+
+//    echo $last_id_oders;
 //    $id_oder_detail= pdo_execute_get_id($query2);
 //    echo $id_oder_detail;
 //    $sql_new2 = "INSERT INTO `orders` (`id_oders`, `ngaymua`,  `ma_khach_hang`, `total`, `status`, `hinh_thuc_thanh_toan`) VALUES (NULL, '$ngaymua',  'ma_khach_hang', '$tong', '1', 'Tiền mặt')";
