@@ -122,9 +122,9 @@ require "../controller/save-checkout.php"
                     <label for="username">Username</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text">@</span>
+                            <span class="input-group-text"><3</span>
                         </div>
-                        <input type="text" class="form-control" id="username" placeholder="Username" required="" name="user">
+                        <input type="text" class="form-control" id="username" placeholder="Ghi chú" required="" name="user">
                         <div class="invalid-feedback" style="width: 100%;"> Your username is required. </div>
                     </div>
                 </div>
