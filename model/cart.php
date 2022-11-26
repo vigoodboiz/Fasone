@@ -47,9 +47,11 @@ function showgiohang(){
             for ($i=0; $i < sizeof($_SESSION['giohang']); $i++) {
                 $tt=$_SESSION['giohang'][$i][2] * $_SESSION['giohang'][$i][3];
                 $tong+=$tt;
+//                echo "<pre>";
+//                echo print_r($_SESSION['giohang'])."</br>";
                 echo '<tr class="spadd">
                             <td>'.($i+1).'</td>
-                            <td><img height="100px" src="./admin/image/'.$_SESSION['giohang'][$i][0].'" alt=""></td>
+                            <td><img height="100px" src="../src/image/'.$_SESSION['giohang'][$i][0].'" alt=""></td>
                             <td>'.$_SESSION['giohang'][$i][1].'</td>
                             <td>'.$_SESSION['giohang'][$i][2].'</td>
                             <td>'.$_SESSION['giohang'][$i][3].'</td>
