@@ -5,6 +5,13 @@ $query2 = "select hd.id_oders,ngaymua,total,status, kh.id_khach_hang,ten_khach_h
 $bill_detail = $conn->query($query2)->fetchAll();
 $query = "select * from oders b inner join khach_hang c where b.id_khach_hang = c.id_khach_hang";
 $bill = $conn->query($query)->fetchAll();
+
+if(isset($_POST['capnhat'])&& isset($_POST["ds"]) && isset($_POST["id_hoadon"])){
+    $ds = $_POST['ds'];
+    $id = $_POST['id_hoadon'];
+    $update = "UPDATE `oders` SET `status` = '$ds' WHERE `oders`.`id_oders` = '$id'";
+    $rows = $conn->exec($update);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,6 +53,7 @@ $bill = $conn->query($query)->fetchAll();
                 </div>
             </div>
         </div>
+        <form method="post" action="">
         <table border=1>
             <thead>
             <tr>
@@ -63,19 +71,25 @@ $bill = $conn->query($query)->fetchAll();
                     <td><?php echo $value["ten_khach_hang"]?></td>
                     <td><?php echo $value["ngaymua"]?></td>
                     <td><?php echo $value["total"]?></td>
-                    <td>  <select name="ds[]" style="border: none; text-align: center; font-size: 20px">
-                            <option value="1" <?php echo($value['status']==1)?"selected":"" ?> >Chưa thanh toán</option>
-                            <option value="0" <?php echo($value['status']==0)?"selected":"" ?>>Đã thanh toán</option>
+                    <td>
+                            <select name="ds" style="border: none; text-align: center; font-size: 20px">
+                                <option value="1" <?php echo($value['status']==1)?"selected":"" ?> >Chưa thanh toán</option>
+                                <option value="0" <?php echo($value['status']==0)?"selected":"" ?>>Đã thanh toán</option>
 
-                        </select>  </td>
+                            </select>
+                          </td>
                     <td class="conten-action">
-                        <a href="./bill_detail.php.php?id <?php echo $value["id_oders"]?>"><button>Detail</button></a>
-                        <a href="./controller/delete-category.php?id <?php echo $value["id_oders"]?>" onclick="if (!confirm('Bạn có muốn xóa hóa đơn không?')) { return false }"><button>Delete Bill</button></a>
+                        <a href="./bill_detail.php?id= <?php echo $value["id_oders"]?>"><button>Detail</button></a>
+                        <a href="../../controller/delete-bill.php?id= <?php echo $value["id_oders"]?>" onclick="if (!confirm('Bạn có muốn xóa hóa đơn không?')) { return false }"><button>Delete Bill</button></a>
                     </td>
                 </tr>
+
             <?php } ?>
             </tbody>
         </table>
+            <input type="hidden" name="id_hoadon" value="<?php echo $value['id_oders'] ?>">
+            <input type="submit" name="capnhat" value="CAP NHAT HOA DON">
+        </form>
     </main>
 </div>
 </body>
