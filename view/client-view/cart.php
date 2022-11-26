@@ -28,9 +28,11 @@ require "../../model/cart.php"
     </table>
 </div>
 <div class="luachon">
-    <input type="submit" value="ĐỒNG Ý ĐẶT HÀNG" name="dongydathang">
-    <a href="cart.php?delcart=1"><input type="button" value="XÓA TOÀN BỘ GIỎ HÀNG"></a>
-    <a href="index1.php"><input type="button" value="TIẾP TỤC ĐẶT HÀNG"></a>
+    <form action="../../model/checkout.php">
+        <input type="submit" value="ĐỒNG Ý ĐẶT HÀNG" name="dongydathang">
+        <a href="cart.php?delcart=1"><input type="button" value="XÓA TOÀN BỘ GIỎ HÀNG"></a>
+        <a href="index1.php"><input type="button" value="TIẾP TỤC ĐẶT HÀNG"></a>
+    </form>
 </div>
 </div>
 </body>
