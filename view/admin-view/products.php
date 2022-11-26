@@ -66,8 +66,8 @@ include_once "../../model/products.php";
                         <td><?php echo $value["thongtin"]?></td>
                         <td><?php echo $value["mota"]?></td>
                         <td class="conten-action">
-                            <a href="../view/main-view/update-products.php?id <?php echo $value["id"]?>"><button>Update</button></a><br>
-                            <a href="../../controller/delete-products.php?id <?php echo $value["id"]?>" onclick="if (!confirm('Bạn có muốn xóa sản phẩm không?')) { return false }"><button>Delete</button></a>
+                            <a href="../view/main-view/update-products.php?id <?php echo $value["id_sanpham"]?>"><button>Update</button></a><br>
+                            <a href="../../controller/delete-products.php?id <?php echo $value["id_sanpham"]?>" onclick="if (!confirm('Bạn có muốn xóa sản phẩm không?')) { return false }"><button>Delete</button></a>
                         </td>
                     </tr>
                     <?php endforeach ?>
