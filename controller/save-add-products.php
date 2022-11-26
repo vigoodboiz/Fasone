@@ -1,17 +1,16 @@
 <?php
 include "../model/connect.php";
 session_start();
-if(!empty($_POST["name"]) && !empty($_POST["price"]) && $_FILES["avt"]["size"] != 0 && !empty($_POST["sale"]) && !empty($_POST["thongtin"]) && !empty($_POST["mota"]) && !empty($_POST["view"])){
+if(!empty($_POST["name"]) && !empty($_POST["price"]) && $_FILES["img"]["size"] != 0 && !empty($_POST["sale"]) && !empty($_POST["thongtin"]) && !empty($_POST["mota"])){
     $name = $_POST["name"];
     $price = $_POST["price"];
-    $avt = $_FILES["avt"]["name"];
+    $img = $_FILES["img"]["name"];
     $sale = $_POST["sale"];
     $thongtin = $_POST["thongtin"];
     $mota = $_POST["mota"];
-    $view = $_POST["view"];
-$query = "INSERT INTO `sanpham` (`id`, `name`, `price`, `img`, `sale`, `thongtin`, `mota`, `luotxem`) VALUES ('NULL', '$name', '$price', '$img', '$sale', '$thongtin', '$mota', '$luotxem')";
+$query = "INSERT INTO `sanpham` (`id_sanpham`, `name`, `price`, `img`, `sale`, `thongtin`, `mota`) VALUES ('NULL', '$name', '$price', '$img', '$sale', '$thongtin', '$mota')";
 connect($query);
-move_uploaded_file($_FILES["avt"]["tmp_name"],"../src/image/".$_FILES["avt"]["name"]);
+move_uploaded_file($_FILES["img"]["tmp_name"],"../src/image/".$_FILES["img"]["name"]);
 header("location: ../view/admin-view/products.php");
 } else{
     if(isset($_POST["submit"])){
@@ -25,10 +24,10 @@ header("location: ../view/admin-view/products.php");
         } else{
             $_SESSION["errPrice"] = "";
         }
-        if($_FILES["avt"]["size"] == 0){
-            $_SESSION["errAvt"] = "Bạn chưa chọn ảnh sản phẩm";
+        if($_FILES["img"]["size"] == 0){
+            $_SESSION["errImg"] = "Bạn chưa chọn ảnh sản phẩm";
         } else{
-            $_SESSION["errAvt"] = "";
+            $_SESSION["errImg"] = "";
         }
         if(empty($_POST["sale"])){
             $_SESSION["errSale"] = "Bạn chưa nhập giá sale";
@@ -43,11 +42,6 @@ header("location: ../view/admin-view/products.php");
             $_SESSION["errDescribe"] = "Bạn chưa nhập mô tả sản phẩm";
         } else{
             $_SESSION["errDescribe"] = "";
-        }
-        if(empty($_POST["view"])){
-            $_SESSION["errView"] = "Bạn chưa nhập lượt xem";
-        } else{
-            $_SESSION["errView"] = "";
         }
         header("location: ../view/main-view/add-new-products.php");
     }

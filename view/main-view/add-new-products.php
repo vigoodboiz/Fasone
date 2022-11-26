@@ -21,40 +21,36 @@ session_start();
             <h1>Add new user</h1>
             <form action="../../controller/save-add-products.php" method="POST" enctype="multipart/form-data">
                 <span>Tên sản phẩm</span><br>
-                <input type="text" name="name" placeholder="Nhập tên sản phẩm">
+                <input type="text" name="name" placeholder="Nhập tên sản phẩm"><br>
                 <span style="color: red;"><?php echo $_SESSION["errName"]?></span>
                 <br>
                 <span>Giá sản phẩm</span><br>
-                <input type="text" name="price" placeholder="Nhập tên sản phẩm">
+                <input type="text" name="price" placeholder="Nhập tên sản phẩm"><br>
                 <span style="color: red;"><?php echo $_SESSION["errPrice"]?></span>
                 <br>
                 <span>Sale sản phẩm</span><br>
-                <input type="number" name="sale" min="0" placeholder="Nhập giá sale sản phẩm">
+                <input type="number" name="sale" min="0" placeholder="Nhập giá sale sản phẩm"><br>
                 <span style="color: red;"><?php echo $_SESSION["errSale"]?></span>
                 <br>
                 <span>Ảnh sản phẩm</span><br>
-                <input type="file" name="avt">
-                <span style="color: red;"><?php echo $_SESSION["errAvt"]?></span>
+                <input type="file" name="img"><br>
+                <span style="color: red;"><?php echo $_SESSION["errImg"]?></span>
                 <br>
                 <span>Thông tin sản phẩm</span><br>
-                <input type="text" name="thongtin" placeholder="Nhập thông tin sản phẩm">
+                <input type="text" name="thongtin" placeholder="Nhập thông tin sản phẩm"><br>
                 <span style="color: red;"><?php echo $_SESSION["errInformation"]?></span>
                 <br>
                 <span>Mô tả sản phẩm</span><br>
-                <textarea name="mota" id="" cols="30" rows="10" placeholder="Nhập mô tả sản phẩm"></textarea>
+                <textarea name="mota" id="" cols="30" rows="10" placeholder="Nhập mô tả sản phẩm"></textarea><br>
                 <span style="color: red;"><?php echo $_SESSION["errDescribe"]?></span>
-                <br>
-                <span>Lượt xem sản phẩm</span><br>
-                <input type="text" name="view" placeholder="Nhập lượt xem sản phẩm">
-                <span style="color: red;"><?php echo $_SESSION["errView"]?></span>
                 <br>
                 <button name="submit">Add new products</button>
             </form>
 </main>
 </div>
 <?php  
-    $_SESSION["name"] = $_SESSION["price"] = $_SESSION["avt"] = $_SESSION["sale"] = $_SESSION["thongtin"] = $_SESSION["mota"] = $_SESSION["view"] = "";
-    $_SESSION["errName"] = $_SESSION["errPrice"] = $_SESSION["errAvt"] = $_SESSION["errSale"] = $_SESSION["errInformation"] = $_SESSION["errDescribe"] = $_SESSION["errView"] = "";
+    $_SESSION["name"] = $_SESSION["price"] = $_SESSION["img"] = $_SESSION["sale"] = $_SESSION["thongtin"] = $_SESSION["mota"] = "";
+    $_SESSION["errName"] = $_SESSION["errPrice"] = $_SESSION["errImg"] = $_SESSION["errSale"] = $_SESSION["errInformation"] = $_SESSION["errDescribe"] = "";
     ?>
 </body>
 </html>
