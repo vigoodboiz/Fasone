@@ -1,10 +1,13 @@
 <?php
 require "../../connect.php";
+$id = $_GET['id'];
 $query2 = "select hd.id_oders,ngaymua,total,status, kh.id_khach_hang,ten_khach_hang,dia_chi,dien_thoai,email,ghichu,cthd.sanpham,soluong,price from oders hd, khach_hang kh,oder_detail cthd where hd.id_khach_hang=kh.id_khach_hang and hd.id_oders = cthd.id_oders order by hd.id_oders";
 $bill_detail = $conn->query($query2)->fetchAll();
-$query = "select * from oders b inner join khach_hang c where b.id_khach_hang = c.id_khach_hang";
+$query = "select * from oders b inner join khach_hang c where b.id_khach_hang = c.id_khach_hang and id_oders = '$id'";
 $bill = $conn->query($query)->fetchAll();
-$query3 = "SELECT ct.*,ten_san_pham,hinh from oder_detail ct,sanpham m where ct.id_sanpham=m.id_sanpham and id_oders=? "
+$query3 = "SELECT * FROM sanpham b inner join oder_detail c where b.id_sanpham = c.id_sanpham and id_oders = '$id'";
+//$query3 = "SELECT ct.name,soluong,price,soluong*price as thanhtien,sp.ten_san_pham,img from oder_detail ct,sanpham sp , where ct.id_sanpham=m.id_sanpham and id_oders='$id' ";
+$ct_bill = $conn->query($query3)->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,20 +23,24 @@ $query3 = "SELECT ct.*,ten_san_pham,hinh from oder_detail ct,sanpham m where ct.
 </head>
 <body>
 <div class="container">
+    <a href="bill.php"><h4>Tro ve</h4></a>
     <div class="nameher">
-        <p>Hóa đơn bán hàng</p>
+
+        <p style="text-align: center">Hóa đơn bán hàng</p>
     </div>
     <div class="noidung">
+        <?php foreach ($bill as $key2 => $value2){ ?>
         <div class="thongtin">
             <div class="onedong">
-                <p>Số hóa đơn: </p> <p class="textright">Ngày lập hóa đơn: </p>
+                <p>Số hóa đơn: <?php echo $value2['id_oders'] ?> </p> <p class="textright">Ngày lập hóa đơn: <?php echo $value2['ngaymua'] ?></p>
             </div>
-            <p>Trị giá: </p>
-            <p>Họ và tên khách hàng: </p>
+            <p>Trị giá: <?php echo $value2['total'] ?> </p>
+            <p>Họ và tên khách hàng: <?php echo $value2['ten_khach_hang'] ?></p>
             <div class="onedong">
-                <p>Địa chỉ: </p> <p class="textright">Điện thoại: </p> <p class="textright">Email: </p>
+                <p>Địa chỉ:<?php echo $value2['dia_chi'] ?>  </p> <p class="textright">Điện thoại: <?php echo $value2['dien_thoai'] ?></p> <p class="textright">Email: <?php echo $value2['email'] ?></p>
             </div>
         </div>
+
         <hr>
         <p>Chi tiết hóa đơn</p>
         <table style="width:100%">
@@ -44,17 +51,20 @@ $query3 = "SELECT ct.*,ten_san_pham,hinh from oder_detail ct,sanpham m where ct.
                 <th>Đơn giá</th>
                 <th>Thành tiền</th>
             </tr>
+            <?php foreach ($ct_bill as $key => $value){ ?>
             <tr>
-                <td>quần áo</td>
-                <td>ảnh</td>
-                <td>1</td>
-                <td>2000 Đồng </td>
-                <td>2000 Đồng</td>
+                <td> <?php echo $value['name'] ?> </td>
+                <td> <img src="../../src/image/<?php echo $value['img'] ?>" style="width: 100px;height: 100px"> </td>
+                <td> <?php echo $value['soluong'] ?> </td>
+                <td> <?php echo $value['price'] ?>  </td>
+                <td><?php echo $value['soluong']*$value['price'] ?></td>
             </tr>
+            <?php } ?>
         </table>
         <div class="onedong2">
             <button>In đơn hàng</button>
-            <p>Tổng thành tiền: </p>
+            <p>Tổng thành tiền: <?php echo $value2['total'] ?> </p>
+            <?php } ?>
         </div>
     </div>
 </div>
