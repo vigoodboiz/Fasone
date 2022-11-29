@@ -5,7 +5,7 @@
     <br>
     <div class="menu ">
       <ul>
-        <li><a href="../../index.php">Trang chủhhh.</a></li>
+        <li><a href="../../index.php">Trang chủ</a></li>
         <li><a href="">Giới thiệu</a></li>
         <li><a href="">Liên hệ </a></li>
         <li><a href="">Góp ý</a></li>
