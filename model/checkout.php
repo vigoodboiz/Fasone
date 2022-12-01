@@ -27,7 +27,14 @@ if (isset($_POST['save'])) {
     $reult2 = $conn->exec($sql_new2);
 
 }
-
+// session_start();
+// if(empty($_SESSION)){
+//     header("location: ../view/login.php");
+// } else{
+//     if($_SESSION["role"] == 1){
+//         header("location: ../admin/index.php");
+//     }
+// }
 
 ?>
 

@@ -1,7 +1,7 @@
 :root{
     --color: #DA70D6; 
 }
-.user{
+.category{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -65,7 +65,7 @@ table td{
     font-weight: 400;
 }
 table td img{
-    width: 180px;
+    width: 100px;
     padding-left: 10px;
 }
 .conten-action button{
@@ -80,6 +80,3 @@ table td img{
 .conten-action button:hover{
     background: #F0E68C;
 }
-
-/* end */
-

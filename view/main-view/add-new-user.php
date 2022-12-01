@@ -11,6 +11,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../src/font/fontawesome-free-6.2.1-web/css/all.min.css">
     <link rel="stylesheet" href="../../src/css/main.css">
+    <link rel="stylesheet" href="../../src/css/form.css">
     <title>Add new</title>
 </head>
 <body>
@@ -19,6 +20,7 @@ session_start();
         <main>
             <?php include "../../view/admin-view/header.php"?>
             <h1>Add new user</h1>
+            <div class="form-action">
             <form action="../../controller/save-add-user.php" method="POST" enctype="multipart/form-data">
                 <span>Tên người dùng</span><br>
                 <input type="text" name="name" placeholder="Nhập tên người dùng"><br>
@@ -57,6 +59,7 @@ session_start();
                 <br>
                 <button name="submit">Add new user</button>
             </form>
+            </div>
         </main>
     </div>
     <?php  

@@ -11,6 +11,7 @@
             <li><a href="user.php" aria-hidden="true">Users</a></li>
             <li><a href="comment.php" aria-hidden="true">Comment</a></li>
             <li><a href="statistical.php" aria-hidden="true">Statistical</a></li>
+            <li><a href="bill.php" aria-hidden="true">Bill</a></li>
         </ul>
     </div>
 </aside>
