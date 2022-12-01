@@ -1,27 +1,23 @@
 <footer>
-    <div class="tableft">
-      <div class="mb-3">
-        <h1>Liên hệ</h1>
-        <hr>
-        SDT: 09344xxxxx
-        <br>
-        Liên hệ với chúng tôi
+        <div class="footers">
+      <h2>MUA SẢN PHẨM CỦA BẠN TRONG MỘT CÁCH ĐƠN GIẢN</h2>
+      <div>
+          <h2>Thông tin</h2>
+          <a href="">Trang chủ</a><br>
+          <a href="">Sản phảm</a><br>
+          <a href="">Liên hệ</a><br>
       </div>
-      <div class="mb-4">
-        <h1>Hệ Thống cửa hàng</h1>
-        <hr>
-        <a href="">Hệ thống chuỗi cửa hàng</a><br>
-        <a href="">Nội quy của hàng</a><br>
-        <a href="">Chất lượng phục vụ</a><br>
-        <a href="">Chính sách bảo hàng</a><br>
-
+      <div>
+          <h2>Thông tin của hàng</h2>
+          <p>Địa chỉ : Mỹ Đình, Hà Nội</p>
+          <p>Email: vchientaki@gmail.com</p>
+          <p>Điện thoại: 09344*****</p>
       </div>
-      <div class="mb-5">
-        <h1>Hỗ trợ khách hàng</h1>
-        <hr>
-        <a href="">Hướng dẫn mua hàng online</a><br>
-        <a href="">Chính sách giao hàng</a><br>
-        <a href="">Chính sách thanh toán</a><br>
+      <div>
+          <h2>Trang liên hệ</h2>
+          <a href=""><img src="https://img.icons8.com/material/24/null/facebook-new.png"/></a>
+          <a href=""><img src="https://img.icons8.com/material/24/null/youtube-play--v1.png"/></a>
+          <a href=""><img src="https://img.icons8.com/material/24/null/instagram-new--v1.png"/></a>
       </div>
-    </div>
-  </footer>
+      </div>
+</footer>

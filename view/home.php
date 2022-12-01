@@ -1,30 +1,23 @@
-<main>
-<div class="banner">
-    <img src="./src/image/download.jpg" alt="">
-  </div>
-  <div class="text-header">
-    <h1>Chào mừng đến FLASONE</h1>
-  </div>
-  <div class="search">
-    <form action="" method="post">
-      <input class="nhap"  type="text"  placeholder="Tìm kiếm sản phẩm" required>
-      <input class="sech" type="submit"  value="Tìm kiếm">
-  </form>
-  </div>
-  <div class="img_Slider">
-                    <img src="./src/slide/image/img1.jpg" id="image" alt="">
-                    <div class="icon">
-                        <div class="right" >
-                            <i id="right" onclick="before()" class="icon_slider fa-solid fa-arrow-right"></i>
-                        </div>
-                        <div class="left">
-                            <i id="left" onclick="after()" class="icon_slider fa-solid fa-arrow-left"></i>
-                        </div>
-                    </div>
-                </div>
+<?php  
+include_once "./model/connect.php";
+include_once "./model/products.php";
+?>
+  <main>
+  <div id="products" class="mb-4">
+    <div class="text">
+    <h1>Mặc ngay, yêu luôn</h1>
     </div>
+  <div class="danhmuc">
+    <select name="search-findname" id="">
+      <option value="">Chọn danh mục</option>
+      <?php foreach($category as $value): ?>
+        <option value="<?php echo $value["id_danhmuc"]?>"><?php echo $value["name"]?></option>
+      <?php endforeach ?>
+    </select>
+    <button name="find">Find</button>
+  </div>
     <div class="boxsp">
-      <div class="sanpham">
+      <div class="sp">
       <?php foreach($products as $value): ?>
                     <div class="item">
                         <div class="pic-item">
@@ -36,5 +29,6 @@
                     </div>
             <?php endforeach ?>
     </div>
+</div>
   </div>
 </main>
