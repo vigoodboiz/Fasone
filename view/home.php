@@ -5,7 +5,7 @@
   <div class="text-header">
     <h1>Chào mừng đến FLASONE</h1>
   </div>
-  <div class="search">
+  <div class="search ">
     <form action="" method="post">
       <input class="nhap"  type="text"  placeholder="Tìm kiếm sản phẩm" required>
       <input class="sech" type="submit"  value="Tìm kiếm">

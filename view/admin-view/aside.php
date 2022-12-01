@@ -1,7 +1,7 @@
 
 <aside>
     <div class="logo">
-        <img src="../../src/image/logo.png" alt="">
+        <a href="../../index.php"><img src="../../src/image/logo.png" alt=""></a>
     </div>
     <div class="menu">
         <ul>
