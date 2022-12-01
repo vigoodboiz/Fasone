@@ -10,7 +10,7 @@ $row = $conn->query($sql)->fetchAll();
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">  
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../src/css/style.css">
     <link rel="stylesheet" href="../../src/font/fontawesome-free-6.2.1-web/css/all.min.css">
@@ -30,9 +30,10 @@ $row = $conn->query($sql)->fetchAll();
             </div>
             <div class="infomation">
                 <h1 class="nameProduct"><?php echo $products["name"]?></h1>
-                <p class="priceProduct"><?php echo $products["price"]?> $</p>
+                <p class="priceProduct"><?php echo $products["price"]?> Vnd</p>
                 <h2 class="saleOff">saleOff: <strong style="color: red;"><?php echo $products["sale"]?> %</strong></h2>
                     <br>
+                    <a href=""><button class="addItem">Add to cart</button></a>
                 <?php foreach ($row as $key => $value){ ?>
                     <form method="POST" action="./cart.php?action=add&id=<?php echo $value["id_sanpham"]; ?>">
 

@@ -26,7 +26,7 @@ include_once "../../model/user.php";
                <img src="../../src/image/slider-pic.png" alt="">
             </div>
         </div>
-        <div class="user">
+        <div class="category">
             <div class="text">
                 <h1>Users list</h1>
             </div>
@@ -57,6 +57,7 @@ include_once "../../model/user.php";
                 </tr>
             </thead>
             <tbody>
+                <div class="mb-4">
                 <?php foreach($user as $key => $value) :?>
                     <tr>
                         <td><?php echo $key + 1?></td>
@@ -76,11 +77,12 @@ include_once "../../model/user.php";
                         }
                         ?></td>
                         <td class="conten-action">
-                            <a href="../view/main-view/update-user.php?id=<?php echo $value["id"]?>"><button>Update</button></a>
-                            <a href="../../controller/delete-user.php?id=<?php echo $value["id"]?>" onclick="if (!confirm('Bạn có muốn xóa sản người dùng không?')) { return false }"><button>Delete</button></a>
+                            <a href="../main-view/update-user.php?id=<?php echo $value["id_user"]?>"><button>Update</button></a>
+                            <a href="../../controller/delete-user.php?id=<?php echo $value["id_user"]?>" onclick="if (!confirm('Bạn có muốn xóa sản người dùng không?')) { return false }"><button>Delete</button></a>
                         </td>
                     </tr>
                     <?php endforeach?>
+                </div>
             </tbody>
         </table>
         </main>    

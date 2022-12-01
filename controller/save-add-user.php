@@ -9,7 +9,7 @@ if(!empty($_POST["name"]) && !empty($_POST["email"]) && $_FILES["avatar"]["size"
     $tell = $_POST["tell"];
     $user = $_POST["user"];
     $role = $_POST["role"];
-$query = "INSERT INTO `user` (`id`, `name`, `email`, `user`, `password`, `tell`, `avt`, `role`) VALUES ('NULL', '$name', '$email', '$user', '$password', '$tell', '$avt', $role)";
+$query = "INSERT INTO `user` (`id_user`, `name`, `email`, `user`, `password`, `tell`, `avt`, `role`) VALUES ('NULL', '$name', '$email', '$user', '$password', '$tell', '$avt', $role)";
 connect($query);
 move_uploaded_file($_FILES["avatar"]["tmp_name"],"../src/image/".$_FILES["avatar"]["name"]);
 header("location: ../view/admin-view/user.php");

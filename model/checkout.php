@@ -1,4 +1,42 @@
 <?php
+//require "../controller/save-checkout.php"
+
+require "../connect.php";
+require "cart.php";
+require "../controller/save-checkout.php";
+$tong = 0;
+$tensp = "";
+for ($i = 0; $i < sizeof($_SESSION['giohang']); $i++) {
+    $tt = $_SESSION['giohang'][$i][2] * $_SESSION['giohang'][$i][3];
+    $tong += $tt;
+
+}
+
+if (isset($_POST['save'])) {
+    $name = $_POST['name'];
+    $user = $_POST['user'];
+    $email = $_POST['email'];
+    $address = $_POST['address'];
+    $numberphone = $_POST['numberphone'];
+    $sql_new = "INSERT INTO khach_hang VALUES (NULL,'$name','$address','$numberphone','$email','$user') ";
+    $reult = $conn->exec($sql_new);
+    $ngaymua = date('Y-m-d');
+    $total = $tong;
+
+    $sql_new2="INSERT INTO `orders` (`id_oders`, `ngaymua`, `sanpham`, `ma_khach_hang`, `total`, `status`, `hinh_thuc_thanh_toan`) VALUES (NULL, '$ngaymua', NULL, NULL, '$tong', '1', 'Tiền mặt')";
+    $reult2 = $conn->exec($sql_new2);
+
+}
+// session_start();
+// if(empty($_SESSION)){
+//     header("location: ../view/login.php");
+// } else{
+//     if($_SESSION["role"] == 1){
+//         header("location: ../admin/index.php");
+//     }
+// }
+
+?>
 require "../controller/save-checkout.php"
 ////require "../controller/save-checkout.php"
 //

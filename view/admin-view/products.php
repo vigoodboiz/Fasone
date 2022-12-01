@@ -56,6 +56,7 @@ include_once "../../model/products.php";
                 </tr>
             </thead>
             <tbody>
+                <div class="mb-4">
                 <?php foreach($products as $key => $value) :?>
                     <tr>
                         <td><?php echo $key + 1?></td>
@@ -66,11 +67,12 @@ include_once "../../model/products.php";
                         <td><?php echo $value["thongtin"]?></td>
                         <td><?php echo $value["mota"]?></td>
                         <td class="conten-action">
-                            <a href="../view/main-view/update-products.php?id <?php echo $value["id_sanpham"]?>"><button>Update</button></a><br>
-                            <a href="./controller/delete-products.php?id <?php echo $value["id_sanpham"]?>" onclick="if (!confirm('Bạn có muốn xóa sản phẩm không?')) { return false }"><button>Delete</button></a>
+                            <a href="../main-view/update-products.php?id=<?php echo $value["id_sanpham"]?>"><button>Update</button></a><br>
+                            <a href="../../controller/delete-products.php?id=<?php echo $value["id_sanpham"]?>" onclick="if (!confirm('Bạn có muốn xóa sản phẩm không?')) { return false }"><button>Delete</button></a>
                         </td>
                     </tr>
                     <?php endforeach ?>
+                </div>
             </tbody>
         </table>
         </main>    
