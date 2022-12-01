@@ -31,7 +31,7 @@ $item = getOne($query);
         </div>
         <div class="menu">
             <div class="menus">
-                <a href="./index.php">TRANG CHỦ</a>
+                <a href="../../index.php">TRANG CHỦ</a>
                 <a href="#products">SẢN PHẨM</a>
                 <a href="#about">GIỚI THIỆU</a>
                 <a href="#lienhe">LIÊN HỆ</a>
