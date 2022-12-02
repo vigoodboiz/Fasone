@@ -66,7 +66,6 @@ table td{
 }
 table td img{
     width: 100px;
-    padding-left: 10px;
 }
 .conten-action button{
     width: 100px;
@@ -76,6 +75,7 @@ table td img{
     color: var(--color);
     margin: 10px 20px;
     border-radius: 10px;
+    margin-left: 20px;
 }
 .conten-action button:hover{
     background: #F0E68C;

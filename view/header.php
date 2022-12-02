@@ -1,22 +1,47 @@
+
+<?php
+$query = "select * from user";
+$item = getOne($query);
+?>
 <header>
-    <div class="logo">
-      <img src="./src/image/logo.png" alt="LOGO">
-    </div>
-    <br>
-    <div class="menu ">
-      <ul>
-        <li><a href="../../index.php">Trang chủhhh.</a></li>
-        <li><a href="">Giới thiệu</a></li>
-        <li><a href="">Liên hệ </a></li>
-        <li><a href="">Góp ý</a></li>
-        <li><a href="">Hỏi đáp</a></li>
-        <li><a href="">Đăng nhập</a></li>
-        <li><a href="">Đăng kí</a></li>
-      </ul>
-    </div>
-    <div class="cart">
-    <a href=""><i  class="fa-solid fa-cart-shopping"></i></a>
-    <a href=""><i id="cart1" class="fa-solid fa-user"></i></a>
-    <a href=""><i class="fa-solid fa-right-to-bracket"></i></a>
-    </div>
+      <div class="information">
+            <p><img src="https://img.icons8.com/material/24/null/clock--v1.png"/> Giao hàng miễn phí và nhanh chóng</p>
+            <p><img src="https://img.icons8.com/ios-filled/50/null/shopping-mall.png"/> Miễn phí vận chuyển trên tất cả các đơn đặt hàng </p>
+            <p><img src="https://img.icons8.com/material/24/null/new-post--v1.png"/> vchientaki@gmail.com</p>
+           
+        </div>
+        <hr>
+        <div class="header">
+        <div class="function">
+            <a href=""><img src="./src/image/logo.png" alt="Logo"></a>
+            <div class="search">
+                <form action="search" >
+                    <form action="">
+                        <div class="search_box">
+                        <input type="text" class="input" placeholder="search...">
+                            <button>Tìm kiếm</button>
+                        </div>
+                    </form>
+                </form>
+            </div>
+            <div class="lg-lout">
+                <a href="./view/client-view/detail-user.php?id=<?php echo $item["id_user"]?>"><img src="https://img.icons8.com/material/24/null/user-male-circle--v1.png"/></a>
+                <a href="./controller/logout.php"><img src="https://img.icons8.com/material/24/null/exit.png"/></a>
+            </div>
+        </div>
+        <div class="menu">
+            <div class="menus">
+                <a href="../../index.php">TRANG CHỦ</a>
+                <a href="#products">SẢN PHẨM</a>
+                <a href="#about">GIỚI THIỆU</a>
+                <a href="#lienhe">LIÊN HỆ</a>
+            </div>
+            <div class="giohang">
+                <a href=""><img src="https://img.icons8.com/ios-filled/50/null/shopping-mall.png"/>   GIỎ HÀNG</a>
+            </div>
+        </div>
+      </div>
+      <div class="banner">
+                <img src="./src/image/banner.jpg" alt="">
+        </div>
   </header>

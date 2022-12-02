@@ -29,6 +29,7 @@ include "../../model/connect.php";
             <h1>Update user</h1>
             <div class="form-action">
             <form action="../../controller/save-update-user.php" method="POST" enctype="multipart/form-data">
+                <input type="text" value="<?php echo $item["id_user"]?>" hidden>
                 <span>Tên người dùng</span><br>
                 <input type="text" name="name" placeholder="Nhập tên người dùng" value="<?php echo $item["name"]?>"><br>
                 <span style="color: red;"><?php if(!empty($_SESSION["errName"])) { echo $_SESSION["errName"]; }?></span>

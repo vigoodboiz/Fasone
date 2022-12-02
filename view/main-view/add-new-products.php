@@ -1,6 +1,8 @@
 <?php
 include_once "../../model/connect.php";
 include_once "../../model/products.php";
+$query = "select * from danhmuc";
+$category = getAll($query);
 session_start();
 ?>
 <!DOCTYPE html>
@@ -19,7 +21,7 @@ session_start();
         <?php include "../../view/admin-view/aside.php"?>
         <main>
             <?php include "../../view/admin-view/header.php"?>
-            <h1>Add new user</h1>
+            <h1>Add new products</h1>
             <div class="form-action">
             <form action="../../controller/save-add-products.php" method="POST" enctype="multipart/form-data">
                 <span>Tên sản phẩm</span><br>
@@ -48,8 +50,8 @@ session_start();
                 <br>
                 <span>Danh mục sản phẩm</span><br>
                 <select name="category" id="">
-                    <?php foreach($category as $value):?>
-                       <option value="<?php echo $value["id_danhmuc"]?>"><?php echo $value["name"]?></option>
+                    <?php foreach($category as $key => $value):?>
+                       <option class="option" value="<?php echo $value["id_danhmuc"]?>"><?php echo $value["name"]?></option>
                     <?php endforeach?>
                 </select><br>
                 <button name="submit">Add new products</button>
