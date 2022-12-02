@@ -33,17 +33,15 @@ $row = $conn->query($sql)->fetchAll();
                 <p class="priceProduct"><?php echo $products["price"]?> Vnd</p>
                 <h2 class="saleOff">saleOff: <strong style="color: red;"><?php echo $products["sale"]?> %</strong></h2>
                     <br>
-                    <a href=""><button class="addItem">Add to cart</button></a>
+                    <!-- <a href=""><button class="addItem">Add to cart</button></a> -->
                 <?php foreach ($row as $key => $value){ ?>
                     <form method="POST" action="./cart.php?action=add&id=<?php echo $value["id_sanpham"]; ?>">
-
-
                         <input type="hidden" name="hinh" value="<?php echo $value['img']; ?>">
                         <input type="hidden" name="name" value="<?php echo $value["name"]; ?>" />
                         <input type="hidden" name="gia" value="<?php echo $value['price'] ?>" />
                         <input type="hidden" name="id" value="<?php echo $value["id_sanpham"]; ?>">
-                        <input type="number" name="soluong" min="1" max="10" value="1">
-                        <input id="submit"  type="submit" name="addcart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />
+                        <input type="number" name="soluong" min="1" max="10" value="1"><br>
+                        <input id="submit"  type="submit" name="addcart" style="margin-top:5px;" class="addItem" class="btn btn-success" value="Add to Cart" />
                     </form>
                 <?php } ?>
             </div>
