@@ -15,7 +15,7 @@ if(!empty($_POST["name"]) && !empty($_POST["email"]) && $_FILES["avatar"]["size"
     $tell = $_POST["tell"];
     $user = $_POST["user"];
     $role = $_POST["role"];
-$query = "UPDATE user SET name='$name'; email='$email'; avt='$avt'; password='$password'; tell='$tell'; user='$user'; role='$rolle' where id='$id_user'";
+$query = "UPDATE user SET name='$name'; email='$email'; avt='$avt'; password='$password'; tell='$tell'; user='$user'; role='$rolle' where id_user='$id_user'";
 connect($query);
 move_uploaded_file($_FILES["avatar"]["tmp_name"],"../src/image/".$_FILES["avatar"]["name"]);
 header("location: ../view/admin-view/user.php");

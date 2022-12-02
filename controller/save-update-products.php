@@ -14,7 +14,7 @@ if(!empty($_POST["name"]) && !empty($_POST["price"]) && $_FILES["img"]["size"] !
     $sale = $_POST["sale"];
     $thongtin = $_POST["thongtin"];
     $mota = $_POST["mota"];
-$query = "UPDATE sanpham SET name='$name'; price='$price'; img='$img'; sale='$sale'; thongtin='$thongtin'; mota='$mota' where id_sanpham=$id_sanpham";
+$query = "UPDATE sanpham SET name='$name'; price='$price'; img='$img'; sale='$sale'; thongtin='$thongtin'; mota='$mota' where id_sanpham='$id_sanpham'";
 connect($query);
 move_uploaded_file($_FILES["img"]["tmp_name"],"../src/image/".$_FILES["img"]["name"]);
 header("location: ../view/admin-view/products.php");

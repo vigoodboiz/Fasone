@@ -1,6 +1,7 @@
 <?php  
 include_once "./model/connect.php";
 include_once "./model/products.php";
+include_once "./model/category.php";
 ?>
   <main>
   <div id="products" class="mb-4">
@@ -24,7 +25,7 @@ include_once "./model/products.php";
                         <a href="./view/client-view/detail-products.php?id=<?php echo $value["id_sanpham"] ?>"><img src="./src/image/<?php echo $value["img"] ?>" alt=""></a>
                         </div>
                         <h2><a href="./view/client-view/detail-products.php?id=<?php echo $value["id_sanpham"] ?>"><?php echo $value["name"] ?></a></h2>
-                        <p><?php echo $value["price"] ?>$</p>
+                        <p><?php echo $value["price"] ?>đ</p>
                         <small><?php echo $value["mota"] ?></small>
                     </div>
             <?php endforeach ?>
