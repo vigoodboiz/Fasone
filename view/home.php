@@ -1,3 +1,4 @@
+
 <?php  
 include_once "./model/connect.php";
 include_once "./model/products.php";
@@ -7,7 +8,7 @@ include_once "./model/category.php";
   <div id="products" class="mb-4">
     <div class="text">
     <h1>Mặc ngay, yêu luôn</h1>
-    </div>
+</div>
   <div class="danhmuc">
     <select name="search-findname" id="">
       <option value="">Chọn danh mục</option>

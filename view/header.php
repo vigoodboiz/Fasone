@@ -44,4 +44,4 @@ $item = getOne($query);
       <div class="banner">
                 <img src="./src/image/banner.jpg" alt="">
         </div>
-    </header>
+  </header>
