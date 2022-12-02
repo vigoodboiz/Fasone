@@ -5,7 +5,7 @@ $query2 = "select hd.id_oders,ngaymua,total,status, kh.id_khach_hang,ten_khach_h
 $bill_detail = $conn->query($query2)->fetchAll();
 $query = "select * from oders b inner join khach_hang c where b.id_khach_hang = c.id_khach_hang";
 $bill = $conn->query($query)->fetchAll();
-
+//
 if(isset($_POST['capnhat'])&& isset($_POST["ds"]) && isset($_POST["id_hoadon"])){
     $ds = $_POST['ds'];
     $id = $_POST['id_hoadon'];
@@ -53,7 +53,6 @@ if(isset($_POST['capnhat'])&& isset($_POST["ds"]) && isset($_POST["id_hoadon"]))
                 </div>
             </div>
         </div>
-        <form method="post" action="">
         <table border=1>
             <thead>
             <tr>
@@ -79,15 +78,18 @@ if(isset($_POST['capnhat'])&& isset($_POST["ds"]) && isset($_POST["id_hoadon"]))
                             </select>
                           </td>
                     <td class="conten-action">
-                        <a href="./bill_detail.php?id= <?php echo $value["id_oders"]?>"><button>Detail</button></a>
-                        <a href="../../controller/delete-bill.php?id= <?php echo $value["id_oders"]?>" onclick="if (!confirm('Bạn có muốn xóa hóa đơn không?')) { return false }"><button>Delete Bill</button></a>
+                        <a href="./bill_detail.php?id=<?php echo $value["id_oders"]?>"><button>Detail</button></a>
+                        <a href="../../controller/delete-bill.php?id=<?php echo $value["id_oders"]?>" onclick="if (!confirm('Bạn có muốn xóa hóa đơn không?')) { return false }"><button>Delete Bill</button></a>
                     </td>
                 </tr>
 
             <?php } ?>
             </tbody>
         </table>
-            <input type="hidden" name="id_hoadon" value="<?php echo $value['id_oders'] ?>">
+        <form method="post" action="">
+            <?php foreach ($bill as $key => $value) { ?>
+            <input type="hidden" name="id_hoadon" value="<?php echo $value["id_oders"] ?>">
+            <?php } ?>
             <input type="submit" name="capnhat" value="CAP NHAT HOA DON">
         </form>
     </main>
