@@ -71,8 +71,8 @@ header{
     padding-left: 100px;
 }
 .conten-avatar img{
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     border: 2px solid var(--color);
     overflow: hidden;

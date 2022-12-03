@@ -24,11 +24,16 @@ include_once "../controller/login.php";
             <input type="text" name="name" placeholder="Enter your name" required><br>
             <span>Password</span><br>
             <input type="password" name="password" placeholder="Enter your password" required><br>
+            <span style="color: red;"><?php echo $_SESSION["errPassword"]?></span>
             <button name="submit">Login</button><br>
             <span>Do not have an account?</span><a href="./signup.php">Register here</a>
         </form>
             </div>
         </div>
     </div>
+    <?php
+    $_SESSION["password"] = "";
+    $_SESSION["errPassword"] = "";
+    ?>
 </body>
 </html>

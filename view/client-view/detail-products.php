@@ -5,19 +5,20 @@ require "../../connect.php";
     $id = $_GET['id'];
 $sql = "select * from `sanpham` WHERE `sanpham`.`id_sanpham` = '$id'";
 $row = $conn->query($sql)->fetchAll();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">  
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../src/css/style.css">
     <link rel="stylesheet" href="../../src/font/fontawesome-free-6.2.1-web/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
-	<title>Document</title>
+	<title>Chi tiết sản phẩm</title>
 </head>
 <body>
     <?php include '../../view/header.php'?>
@@ -28,15 +29,20 @@ $row = $conn->query($sql)->fetchAll();
             <div class="picture">
                 <img src="../../src/image/<?php echo $products["img"]?>" alt="<?php echo $products["name"]?>">
             </div>
+            
             <div class="infomation">
+                    <div class="more-info">
+                    <h1>Thông tin sản phẩm</h1>
+                    
+                    <p class="description"> <?php echo $products["thongtin"]?></p>
+                    <p class="mota">Mô tả: <?php echo $products["mota"]?></p>
+                </div>
                 <h1 class="nameProduct"><?php echo $products["name"]?></h1>
-                <p class="priceProduct"><?php echo $products["price"]?> $</p>
+                <p class="priceProduct"> Giá: <?php echo $products["price"]?> Vnd</p>
                 <h2 class="saleOff">saleOff: <strong style="color: red;"><?php echo $products["sale"]?> %</strong></h2>
                     <br>
                 <?php foreach ($row as $key => $value){ ?>
                     <form method="POST" action="./cart.php?action=add&id=<?php echo $value["id_sanpham"]; ?>">
-
-
                         <input type="hidden" name="hinh" value="<?php echo $value['img']; ?>">
                         <input type="hidden" name="name" value="<?php echo $value["name"]; ?>" />
                         <input type="hidden" name="gia" value="<?php echo $value['price'] ?>" />
@@ -47,10 +53,9 @@ $row = $conn->query($sql)->fetchAll();
                 <?php } ?>
             </div>
         </div>
-        <div class="more-info">
-            <h1>Mô tả sản phẩm</h1>
-            <p class="mota"><?php echo $products["mota"]?></p>
-            <p class="description">Thông tin sản phẩm: <?php echo $products["thongtin"]?></p>
+        <div class="cmt">
+            <h1>Bình luận</h1>
+            <iframe src="../../controller/comment.php?id_sanpham=<?=$_GET['id'] ?>" width="100%" height="400px" frameborder="0"></iframe>
         </div>
     </div>
     <br><hr>

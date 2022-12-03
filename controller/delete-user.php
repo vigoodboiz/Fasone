@@ -1,9 +1,9 @@
 <?php
 include "../model/connect.php"; 
 
-$id = $_GET["id"];
+$id_user = $_GET["id"];
 
-        $query = "DELETE FROM user WHERE  id=$id";
+        $query = "DELETE FROM user WHERE  id_user=$id_user";
         connect($query);
         header("location: ../view/admin-view/user.php");
 ?>

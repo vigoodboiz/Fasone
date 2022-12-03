@@ -68,6 +68,9 @@ table td img{
     width: 180px;
     padding-left: 10px;
 }
+.conten-action{
+    text-align: center;
+}
 .conten-action button{
     width: 100px;
     height: 50px;

@@ -9,12 +9,12 @@ foreach($user as $value){
                 $_SESSION["avt"] = "./src/image/".$value["avt"];
                 $_SESSION["role"] = $value["role"];
                 if($_SESSION["role"] == 1) {
-                    header("location:../view/client-view/index.php"); 
+                    header("location:../index.php");  
                 } else {
                     header("location:../view/admin-view/dashboard.php");
                 }
             } else {
-                $_SESSION["err"] = "Tên đăng nhập hoặc mật khẩu không đúng";
+                $_SESSION["errPassword"] = "Tên đăng nhập hoặc mật khẩu không đúng";
             }
         }
     }

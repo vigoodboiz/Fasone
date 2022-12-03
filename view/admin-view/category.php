@@ -32,7 +32,7 @@ include_once "../../model/category.php";
             </div>
             <div class="action">
                 <div class="product-action">
-                <a href="../view/main-view/add-new-category.php"><button>Add new category</button></a>
+                <a href="../main-view/add-new-category.php"><button>Add new category</button></a>
                 </div>
                 <div class="product-form">
                 <form action="category.php" method="POST">
@@ -56,8 +56,8 @@ include_once "../../model/category.php";
                         <td><?php echo $key + 1?></td>
                         <td><?php echo $value["name"]?></td>
                         <td class="conten-action">
-                            <a href="../view/main-view/update-category.php?id <?php echo $value["id"]?>"><button>Update category</button></a>
-                            <a href="./controller/delete-category.php?id <?php echo $value["id"]?>" onclick="if (!confirm('Bạn có muốn xóa danh mục không?')) { return false }"><button>Delete category</button></a>
+                            <a href="../main-view/update-category.php?id=<?php echo $value["id_danhmuc"]?>"><button>Update</button></a>
+                            <a href="../../controller/delete-category.php?id=<?php echo $value["id_danhmuc"]?>" onclick="if (!confirm('Bạn có muốn xóa danh mục không?')) { return false }"><button>Delete</button></a>
                         </td>
                     </tr>
                 <?php endforeach?>

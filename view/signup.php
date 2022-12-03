@@ -1,6 +1,8 @@
 <?php
 include_once "../model/connect.php";
 include_once "../controller/signup.php";
+$query = "select * from user";
+$user = getAll($query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +21,7 @@ include_once "../controller/signup.php";
             </div>
             <div class="action-login">
             <h1>Sign up</h1>
-        <form action="sign.php" method="POST">
+        <form action="../controller/signup.php" method="POST" enctype="multipart/form-data">
                 <span>User name</span><br>
                 <input type="text" name="name" placeholder="Enter your name" required><br>
                 <br>
