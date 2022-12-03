@@ -10,13 +10,14 @@ require "../../model/cart.php"
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="../../src/css/cart.css">
+    <link rel="stylesheet" href="../../src/css/style.css">
 </head>
 <body>
 <?php include '../../view/header.php'?>
 <!-- Cart ---->
 <h1>GIỎ HÀNG</h1>
 <div class="rowmb">
-    <table class="sanpham">
+    <table class="products-cart">
         <tr>
             <th>STT</th>
             <th>Hình</th>

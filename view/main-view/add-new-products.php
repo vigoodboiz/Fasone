@@ -51,7 +51,7 @@ session_start();
                 <span>Danh mục sản phẩm</span><br>
                 <select name="category" id="">
                     <?php foreach($category as $key => $value):?>
-                       <option class="option" value="<?php echo $value["id_danhmuc"]?>"><?php echo $value["name"]?></option>
+                       <option class="option" value="<?php echo $value["id_danhmuc"]?>"> <?php echo $value["name"]?></option>
                     <?php endforeach?>
                 </select><br>
                 <button name="submit">Add new products</button>

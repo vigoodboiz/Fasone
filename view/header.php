@@ -1,8 +1,4 @@
 
-<?php
-$query = "select * from user";
-$item = getOne($query);
-?>
 <header>
       <div class="information">
             <p><img src="https://img.icons8.com/material/24/null/clock--v1.png"/> Giao hàng miễn phí và nhanh chóng</p>
