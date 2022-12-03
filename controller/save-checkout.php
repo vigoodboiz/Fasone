@@ -40,6 +40,7 @@ if (isset($_POST['save'])) {
     $sql_new2 = "INSERT INTO `oders` (`id_oders`, `ngaymua`,  `id_khach_hang`, `total`, `status`, `hinh_thuc_thanh_toan`) VALUES (NULL, '$ngaymua',  '$last_id_khach_hang', '$tong', '1', 'Tiền mặt')";
     $reult2 = $conn->exec($sql_new2);
     $last_id_oders = $conn->lastInsertId();
+    $_SESSION['id_oders'] = $last_id_oders;
 
     foreach($_SESSION['giohang'] as $product) {
 //        echo $product[1]."</br>";
@@ -48,10 +49,12 @@ if (isset($_POST['save'])) {
         $row = $conn->exec($query);
 
         $last_id_oder_detail = $conn->lastInsertId();
+        header("location:../view/client-view/thanhcong.php");
 
 //        echo $last_id_oder_detail;
 
     }
+
 
 //    echo $last_id_oders;
 //    $id_oder_detail= pdo_execute_get_id($query2);
@@ -60,7 +63,10 @@ if (isset($_POST['save'])) {
 //    $reult2 = $conn->exec($sql_new2);
 
 }
+
 ?>
+
+
 
 
 
