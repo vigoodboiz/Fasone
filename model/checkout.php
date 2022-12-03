@@ -1,8 +1,47 @@
 <?php
 //require "../controller/save-checkout.php"
+if(!isset($_SESSION['giohang'])) $_SESSION['giohang']=[];
+//làm rỗng giỏ hàng
+if(isset($_GET['delcart'])&&($_GET['delcart']==1)) unset($_SESSION['giohang']);
+//xóa sp trong giỏ hàng
+if(isset($_GET['delid'])&&($_GET['delid']>=0)){
+    array_splice($_SESSION['giohang'],$_GET['delid'],1);
+}
+//lấy dữ liệu từ form
+if(isset($_POST['addcart'])&&($_POST['addcart'])){
+    $hinh=$_POST['hinh'];
+    $tensp=$_POST['name'];
+    $gia=$_POST['gia'];
+    $soluong=$_POST['soluong'];
+    $id = $_POST['id'];
+
+    //kiem tra sp co trong gio hang hay khong?
+
+    $fl=0; //kiem tra sp co trung trong gio hang khong?
+
+    for ($i=0; $i < sizeof($_SESSION['giohang']); $i++) {
+
+        if($_SESSION['giohang'][$i][1]==$tensp){
+            $fl=1;
+            $soluongnew=$soluong+$_SESSION['giohang'][$i][3];
+            $_SESSION['giohang'][$i][3]=$soluongnew;
+            break;
+
+        }
+
+    }
+    //neu khong trung sp trong gio hang thi them moi
+    if($fl==0){
+        //them moi sp vao gio hang
+        $sp=[$hinh,$tensp,$gia,$soluong,$id];
+        $_SESSION['giohang'][]=$sp;
+    }
+
+    // var_dump($_SESSION['giohang']);
+}
 
 require "../connect.php";
-require "cart.php";
+//require "cart.php";
 require "../controller/save-checkout.php";
 $tong = 0;
 $tensp = "";
@@ -12,45 +51,6 @@ for ($i = 0; $i < sizeof($_SESSION['giohang']); $i++) {
 
 }
 
-if (isset($_POST['save'])) {
-    $name = $_POST['name'];
-    $user = $_POST['user'];
-    $email = $_POST['email'];
-    $address = $_POST['address'];
-    $numberphone = $_POST['numberphone'];
-    $sql_new = "INSERT INTO khach_hang VALUES (NULL,'$name','$address','$numberphone','$email','$user') ";
-    $reult = $conn->exec($sql_new);
-    $ngaymua = date('Y-m-d');
-    $total = $tong;
-
-    $sql_new2="INSERT INTO `orders` (`id_oders`, `ngaymua`, `sanpham`, `ma_khach_hang`, `total`, `status`, `hinh_thuc_thanh_toan`) VALUES (NULL, '$ngaymua', NULL, NULL, '$tong', '1', 'Tiền mặt')";
-    $reult2 = $conn->exec($sql_new2);
-
-}
-// session_start();
-// if(empty($_SESSION)){
-//     header("location: ../view/login.php");
-// } else{
-//     if($_SESSION["role"] == 1){
-//         header("location: ../admin/index.php");
-//     }
-// }
-
-?>
-require "../controller/save-checkout.php"
-////require "../controller/save-checkout.php"
-//
-//require "../connect.php";
-//require "cart.php";
-//require "../controller/save-checkout.php";
-//$tong = 0;
-//$tensp = "";
-//for ($i = 0; $i < sizeof($_SESSION['giohang']); $i++) {
-//    $tt = $_SESSION['giohang'][$i][2] * $_SESSION['giohang'][$i][3];
-//    $tong += $tt;
-//
-//}
-//
 //if (isset($_POST['save'])) {
 //    $name = $_POST['name'];
 //    $user = $_POST['user'];
@@ -66,9 +66,18 @@ require "../controller/save-checkout.php"
 //    $reult2 = $conn->exec($sql_new2);
 //
 //}
-//
-//
-//?>
+// session_start();
+// if(empty($_SESSION)){
+//     header("location: ../view/login.php");
+// } else{
+//     if($_SESSION["role"] == 1){
+//         header("location: ../admin/index.php");
+//     }
+// }
+
+?>
+
+
 
 
 
@@ -150,11 +159,7 @@ require "../controller/save-checkout.php"
                         <input type="text" class="form-control" id="firstName" placeholder="" value="" required="" name="name">
                         <div class="invalid-feedback"> Tên hợp lệ là bắt buộc. </div>
                     </div>
-<!--                    <div class="col-md-6 mb-3">-->
-<!--                        <label for="lastName">Tên</label>-->
-<!--                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">-->
-<!--                        <div class="invalid-feedback"> Tên hợp lệ là bắt buộc. </div>-->
-<!--                    </div>-->
+
                 </div>
                 <div class="mb-3">
                     <label for="username">Username</label>
@@ -181,42 +186,9 @@ require "../controller/save-checkout.php"
                     <input type="text" class="form-control" id="numberphone" placeholder="0123456789" required="" name="numberphone">
                     <div class="invalid-feedback"> Vui lòng nhập số điện thoại của bạn. </div>
                 </div>
-<!--                <div class="mb-3">-->
-<!--                    <label for="address2">Địa chỉ 2 <span class="text-muted">(Optional)</span></label>-->
-<!--                    <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">-->
-<!--                </div>-->
-<!--                <div class="row">-->
-<!--                    <div class="col-md-5 mb-3">-->
-<!--                        <label for="country">Country</label>-->
-<!--                        <select class="custom-select d-block w-100" id="country" required="">-->
-<!--                            <option value="">Choose...</option>-->
-<!--                            <option>United States</option>-->
-<!--                        </select>-->
-<!--                        <div class="invalid-feedback"> Please select a valid country. </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-md-4 mb-3">-->
-<!--                        <label for="state">State</label>-->
-<!--                        <select class="custom-select d-block w-100" id="state" required="">-->
-<!--                            <option value="">Choose...</option>-->
-<!--                            <option>California</option>-->
-<!--                        </select>-->
-<!--                        <div class="invalid-feedback"> Please provide a valid state. </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-md-3 mb-3">-->
-<!--                        <label for="zip">Zip</label>-->
-<!--                        <input type="text" class="form-control" id="zip" placeholder="" required="">-->
-<!--                        <div class="invalid-feedback"> Zip code required. </div>-->
-<!--                    </div>-->
-<!--                </div>-->
+
                 <hr class="mb-4">
-<!--                <div class="custom-control custom-checkbox">-->
-<!--                    <input type="checkbox" class="custom-control-input" id="same-address">-->
-<!--                    <label class="custom-control-label" for="same-address">Địa chỉ giao hàng giống với địa chỉ thanh toán của tôi</label>-->
-<!--                </div>-->
-<!--                <div class="custom-control custom-checkbox">-->
-<!--                    <input type="checkbox" class="custom-control-input" id="save-info">-->
-<!--                    <label class="custom-control-label" for="save-info">Lưu thông tin này cho lần sau</label>-->
-<!--                </div>-->
+
                 <hr class="mb-4">
                 <h4 class="mb-3">Payment</h4>
                 <div class="d-block my-3">
@@ -233,31 +205,7 @@ require "../controller/save-checkout.php"
                         <label class="custom-control-label" for="paypal">Thanh toán khi nhận hàng</label>
                     </div>
                 </div>
-<!--                <div class="row">-->
-<!--                    <div class="col-md-6 mb-3">-->
-<!--                        <label for="cc-name">Name on card</label>-->
-<!--                        <input type="text" class="form-control" id="cc-name" placeholder="" required="">-->
-<!--                        <small class="text-muted">Tên đầy đủ như hiển thị trên thẻ</small>-->
-<!--                        <div class="invalid-feedback"> Tên trên thẻ là bắt buộc </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-md-6 mb-3">-->
-<!--                        <label for="cc-number">Credit card number</label>-->
-<!--                        <input type="text" class="form-control" id="cc-number" placeholder="" required="">-->
-<!--                        <div class="invalid-feedback"> Số thẻ tín dụng là bắt buộc </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="row">-->
-<!--                    <div class="col-md-3 mb-3">-->
-<!--                        <label for="cc-expiration">hết hạn</label>-->
-<!--                        <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">-->
-<!--                        <div class="invalid-feedback"> Yêu cầu ngày hết hạn </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-md-3 mb-3">-->
-<!--                        <label for="cc-cvv">CVV</label>-->
-<!--                        <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">-->
-<!--                        <div class="invalid-feedback"> Yêu cầu mã bảo mật </div>-->
-<!--                    </div>-->
-<!--                </div>-->
+
                 <hr class="mb-4">
                 <button class="btn btn-primary btn-lg btn-block" type="submit" name="save">Tiếp tục thanh toán</button>
             </form>
