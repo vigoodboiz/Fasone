@@ -20,7 +20,7 @@ body{
     width: 1100px;
     height: 743px;
 }
-.action-login{
+.action-login form{
     padding-right: 30px;
 }
 .action-login h1{

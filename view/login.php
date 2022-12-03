@@ -1,6 +1,8 @@
 <?php
 include_once "../model/connect.php";
 include_once "../controller/login.php";
+$query = "select * from user";
+$item = getOne($query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,6 +28,7 @@ include_once "../controller/login.php";
             <input type="password" name="password" placeholder="Enter your password" required><br>
             <span style="color: red;"><?php echo $_SESSION["errPassword"]?></span>
             <button name="submit">Login</button><br>
+            <a href="./client-view/change-password.php?id=<?php echo $item["id_user"]?>">Quên mật khẩu?</a><br>
             <span>Do not have an account?</span><a href="./signup.php">Register here</a>
         </form>
             </div>

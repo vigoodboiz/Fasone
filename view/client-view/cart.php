@@ -17,7 +17,7 @@ require "../../model/cart.php"
 <!-- Cart ---->
 <h1>GIỎ HÀNG</h1>
 <div class="rowmb">
-    <table class="products-cart">
+    <table class="sanpham">
         <tr>
             <th>STT</th>
             <th>Hình</th>

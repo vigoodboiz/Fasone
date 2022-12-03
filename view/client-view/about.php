@@ -4,7 +4,7 @@
     </div>
     <div class="table">
         <div class="img-table">
-        <img src="./src/image/images1.jpg" alt="">
+        <img src="../../src/image/images1.jpg" alt="">
         </div>
         <div class="text-table">
             <h1>Câu chuyện dịch vụ khách hàng của Fasone</h1>
@@ -31,7 +31,7 @@ Ngoài ra mô hình bán hàng trực tiếp (Ecommerce D2C) cho phép FasOne đ
 FasOne kỳ vọng mang lại giá cả tốt hơn cho khách hàng nhờ vào mô hình bán hàng trực tiếp thông qua nền tảng TMĐT. Thay vì việc phải bán giá sản phẩm x4-x6 lần giá vốn như truyền thống thì FasOne thường là x1.8-x2.5 lần mà chúng tôi vẫn có phần lời nhất định. Ngoài ra FasOne còn hướng tới mang lại một trải nghiệm mua sắm tốt hơn dành cho khách hàng nhờ vào việc tập trung rất nhiều vào dịch vụ khách hàng (tham khảo 11 cam kết của Coolmate dành cho khách hàng)</p>
         </div>
         <div class="img-table">
-        <img src="./src/image/tt02.jpeg" alt="">
+        <img src="../../src/image/tt02.jpeg" alt="">
         </div>
     </div>
 </div>

@@ -3,9 +3,10 @@
       <h2>MUA SẢN PHẨM CỦA BẠN TRONG MỘT CÁCH ĐƠN GIẢN</h2>
       <div>
           <h2>Thông tin</h2>
-          <a href="">Trang chủ</a><br>
-          <a href="">Sản phảm</a><br>
-          <a href="">Liên hệ</a><br>
+          <a href="../../index.php">Trang chủ</a><br>
+          <a href="#products">Sản phẩm</a><br>
+          <a href="#about">Giới thiệu</a><br>
+          <a href="#lienhe">Liên hệ</a><br>
       </div>
       <div>
           <h2>Thông tin của hàng</h2>
