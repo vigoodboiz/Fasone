@@ -58,7 +58,7 @@ function showgiohang(){
 //                echo print_r($_SESSION['giohang'])."</br>";
                 echo '<tr class="spadd">
                             <td>'.($i+1).'</td>
-                            <td><img height="100px" src="../src/image/'.$_SESSION['giohang'][$i][0].'" alt=""></td>
+                            <td><img height="100px" src="../../src/image/'.$_SESSION['giohang'][$i][0].'"></td>
                             <td>'.$_SESSION['giohang'][$i][1].'</td>
                             <td>'.$_SESSION['giohang'][$i][2].'</td>
                             <td>'.$_SESSION['giohang'][$i][3].'</td>
