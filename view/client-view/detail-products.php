@@ -20,7 +20,7 @@ $row = $conn->query($sql)->fetchAll();
 	<title>Chi tiết sản phẩm</title>
 </head>
 <body>
-    <?php include '../../view/header.php'?>
+    <?php include 'header.php' ?>
 <div class="detail-product">
         <h1 style="margin-left: 20px;">Thông tin sản phẩm</h1>
         <br>
@@ -55,6 +55,6 @@ $row = $conn->query($sql)->fetchAll();
         </div>
     </div>
     <br><hr>
-    <?php include '../../view/footer.php'?>
+    <?php include 'footer.php' ?>
 </body>
 </html>

@@ -1,8 +1,8 @@
 <?php
-include_once "../model/connect.php";
-include_once "../model/products.php";
-include_once "../model/category.php";
-require "../connect.php";
+include_once "../../model/connect.php";
+include_once "../../model/products.php";
+include_once "../../model/category.php";
+require "../../connect.php";
 
 $query = "select * from user";
 $item = getOne($query);
@@ -18,7 +18,7 @@ $products = $conn->query($query)->fetchAll();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giao diện</title>
-    <link rel="stylesheet" href="../src/css/style.css">
+    <link rel="stylesheet" href="../../src/css/style.css">
     <link rel="stylesheet" href="./src/font/fontawesome-free-6.2.1-web/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +35,7 @@ $products = $conn->query($query)->fetchAll();
     <hr>
     <div class="header">
         <div class="function">
-            <a href=""><img src="../src/image/logo.png" alt="Logo"></a>
+            <a href=""><img src="../../src/image/logo.png" alt="Logo"></a>
             <div class="search">
                 <form action="search" >
                     <form action="">
@@ -54,7 +54,7 @@ $products = $conn->query($query)->fetchAll();
         </div>
         <div class="menu">
             <div class="menus">
-                <a href="../index.php">TRANG CHỦ</a>
+                <a href="../../index.php">TRANG CHỦ</a>
                 <a href="#products">SẢN PHẨM</a>
                 <a href="#about">GIỚI THIỆU</a>
                 <a href="#lienhe">LIÊN HỆ</a>
@@ -65,7 +65,7 @@ $products = $conn->query($query)->fetchAll();
         </div>
     </div>
     <div class="banner">
-        <img src="../src/image/banner.jpg" alt="">
+        <img src="../../src/image/banner.jpg" alt="">
     </div>
 </header>
 <main>
@@ -81,13 +81,13 @@ $products = $conn->query($query)->fetchAll();
             <!--      --><?php //endforeach ?>
             <!--    </select>-->
             <form method="get">
-                <a href="../index.php#products" style="margin-left: 50px; margin-right: 50px ;font-size: 25px;color: black; text-decoration: none "><strong>Tất cả</strong></a>
+                <a href="home.php#products" style="margin-left: 50px; margin-right: 50px ;font-size: 25px;color: black; text-decoration: none "><strong>Tất cả</strong></a>
 
                 <?php
                 foreach ($category as $value){
                     ?>
 
-                    <a href="loc.php?id=<?php echo $value['id_danhmuc'] ?>#products" style="text-decoration: none;margin-right: 50px;font-size: 25px;color: black;text-align: center "><strong><?php echo $value['name'] ?></strong></a>
+                    <a href="./loc.php?id=<?php echo $value['id_danhmuc'] ?>#products" style="text-decoration: none;margin-right: 50px;font-size: 25px;color: black;text-align: center "><strong><?php echo $value['name'] ?></strong></a>
 
 
                 <?php } ?>
@@ -99,7 +99,7 @@ $products = $conn->query($query)->fetchAll();
                 <?php foreach($products as $value): ?>
                     <div class="item">
                         <div class="pic-item">
-                            <a href="./view/client-view/detail-products.php?id=<?php echo $value["id_sanpham"] ?>"><img src="../src/image/<?php echo $value["img"] ?>" alt=""></a>
+                            <a href="./view/client-view/detail-products.php?id=<?php echo $value["id_sanpham"] ?>"><img src="../../src/image/<?php echo $value["img"] ?>" alt=""></a>
                         </div>
                         <h2><a href="./view/client-view/detail-products.php?id=<?php echo $value["id_sanpham"] ?>"><?php echo $value["name"] ?></a></h2>
                         <p><?php echo $value["price"] ?>đ</p>
@@ -116,7 +116,7 @@ $products = $conn->query($query)->fetchAll();
     </div>
     <div class="table">
         <div class="img-table">
-            <img src="../src/image/images1.jpg" alt="">
+            <img src="../../src/image/images1.jpg" alt="">
         </div>
         <div class="text-table">
             <h1>Câu chuyện dịch vụ khách hàng của Fasone</h1>
@@ -143,7 +143,7 @@ $products = $conn->query($query)->fetchAll();
                 FasOne kỳ vọng mang lại giá cả tốt hơn cho khách hàng nhờ vào mô hình bán hàng trực tiếp thông qua nền tảng TMĐT. Thay vì việc phải bán giá sản phẩm x4-x6 lần giá vốn như truyền thống thì FasOne thường là x1.8-x2.5 lần mà chúng tôi vẫn có phần lời nhất định. Ngoài ra FasOne còn hướng tới mang lại một trải nghiệm mua sắm tốt hơn dành cho khách hàng nhờ vào việc tập trung rất nhiều vào dịch vụ khách hàng (tham khảo 11 cam kết của Coolmate dành cho khách hàng)</p>
         </div>
         <div class="img-table">
-            <img src="../src/image/tt02.jpeg" alt="">
+            <img src="../../src/image/tt02.jpeg" alt="">
         </div>
     </div>
 </div>
