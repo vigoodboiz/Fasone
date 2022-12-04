@@ -26,7 +26,7 @@ $ct_bill = $conn->query($query3)->fetchAll();
 <div class="container">
 
     <div class="nameher">
-        <a href="../../index.php" style="text-decoration: none;color: black; font-size: 15px;"><h4>Trở về trang chủ</h4></a>
+        <a href="../../index.php" style="color: black; font-size: 15px;"><h4>Trở về trang chủ</h4></a>
 
         <p style="text-align: center">Chúc mừng bạn đã đặt hàng thành công</p>
     </div>
