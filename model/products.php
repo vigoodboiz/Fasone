@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(empty($_SESSION)){
-    header("location: ../view/login.php");
+    header("location: ../login.php");
 }
 $query = "select * from sanpham";
 $products = getAll($query);

@@ -1,9 +1,9 @@
 <?php
 include "../model/user.php";
 // session_start();
-if(empty($_SESSION)){
-    header("location: ../view/login.php");
-}
+// if(empty($_SESSION)){
+//     header("location: ../login.php");
+// }
 foreach($user as $value){
     if(isset($_POST["submit"])){
         if(!$_POST["name"] == "" && !$_POST["password"] == ""){

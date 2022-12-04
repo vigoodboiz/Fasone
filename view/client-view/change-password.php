@@ -1,7 +1,8 @@
 <?php
 include "../../model/connect.php";
-$query = "select * from user";
-$item = getOne($query);
+   $query = "select * from user";
+    $user = getOne($query);
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,9 +30,9 @@ $item = getOne($query);
             <input type="text" name="name" placeholder="Enter your name" required><br>
             <span>Password</span><br>
             <input type="password" name="password" placeholder="Enter your password" required><br>
-            <!-- <span style="color: red;"><?php echo $_SESSION["errPassword"]?></span> -->
             <span>Nhập lại password</span>
             <input type="password" name="rePassword" id="" placeholder="Enter your password" required><br>
+            <span style="color: red;"><?php echo $_SESSION["errRePassword"]?></span>
             <a href=""><button name="submit">Đổi mật khẩu</button></a><br>
         </form>
             </div>

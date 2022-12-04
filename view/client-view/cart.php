@@ -13,7 +13,7 @@ require "../../model/cart.php"
     <link rel="stylesheet" href="../../src/css/style.css">
 </head>
 <body>
-<?php include '../../view/header.php'?>
+<?php include 'header.php'?>
 <!-- Cart ---->
 <h1>GIỎ HÀNG</h1>
 <div class="rowmb">
@@ -37,6 +37,6 @@ require "../../model/cart.php"
     </form>
 </div>
 </div>
-<?php include '../../view/footer.php'?>
+<?php include 'view/footer.php'?>
 </body>
 </html>
