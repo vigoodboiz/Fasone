@@ -18,7 +18,7 @@
 	<title>Chi tiết khách hàng</title>
 </head>
 <body>
-    <?php include '../../view/header.php'?>
+    <?php include '../../view/header.php' ?>
 <div class="detail-user">
         <h1 style="margin-left: 20px;">Thông tin khách hàng</h1>
         <br>
@@ -42,6 +42,6 @@
         </div>
     </div>
     <br><hr>
-    <?php include '../../view/footer.php'?>
+    <?php include '../../view/footer.php' ?>
 </body>
 </html>

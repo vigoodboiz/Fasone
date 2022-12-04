@@ -1,5 +1,6 @@
 <?php
 //require "../controller/save-checkout.php"
+
 if(!isset($_SESSION['giohang'])) $_SESSION['giohang']=[];
 //làm rỗng giỏ hàng
 if(isset($_GET['delcart'])&&($_GET['delcart']==1)) unset($_SESSION['giohang']);
@@ -67,13 +68,9 @@ for ($i = 0; $i < sizeof($_SESSION['giohang']); $i++) {
 //
 //}
 // session_start();
-// if(empty($_SESSION)){
-//     header("location: ../view/login.php");
-// } else{
-//     if($_SESSION["role"] == 1){
-//         header("location: ../admin/index.php");
-//     }
-// }
+ if(empty($_SESSION)){
+     header("location: ../login.php");
+ }
 
 ?>
 

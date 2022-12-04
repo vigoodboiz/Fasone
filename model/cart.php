@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(empty($_SESSION)){
+    header("location: ../login.php");
+}
 // if(empty($_SESSION)){
 //     header("location: ../view/login.php");
 // } else{
