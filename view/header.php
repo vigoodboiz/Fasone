@@ -25,6 +25,7 @@ $item = getOne($query);
                 </form>
             </div>
             <div class="lg-lout">
+
                 <a href="./view/client-view/detail-user.php?id=<?php echo $item["id_user"]?>"><img src="https://img.icons8.com/material/24/null/user-male-circle--v1.png"/></a>
                 <a href="./controller/logout.php"><img src="https://img.icons8.com/material/24/null/exit.png"/></a>
             </div>

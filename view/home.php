@@ -10,13 +10,25 @@ include_once "./model/category.php";
     <h1>Mặc ngay, yêu luôn</h1>
 </div>
   <div class="danhmuc">
-    <select name="search-findname" id="">
-      <option value="">Chọn danh mục</option>
-      <?php foreach($category as $value): ?>
-        <option value="<?php echo $value["id_danhmuc"]?>"><?php echo $value["name"]?></option>
-      <?php endforeach ?>
-    </select>
-    <button name="find">Find</button>
+<!--    <select name="search-findname" id="">-->
+<!--      <option value="">Chọn danh mục</option>-->
+<!--      --><?php //foreach($category as $value): ?>
+<!--        <option value="--><?php //echo $value["id_danhmuc"]?><!--">--><?php //echo $value["name"]?><!--</option>-->
+<!--      --><?php //endforeach ?>
+<!--    </select>-->
+      <form method="get">
+          <a href="./index.php#products" style="margin-left: 50px; margin-right: 50px ;font-size: 25px;color: black; text-decoration: none "><strong>Tất cả</strong></a>
+
+          <?php
+          foreach ($category as $value){
+              ?>
+
+              <a href="./view/loc.php?id=<?php echo $value['id_danhmuc'] ?>#products" style="text-decoration: none;margin-right: 50px;font-size: 25px;color: black;text-align: center "><strong><?php echo $value['name'] ?></strong></a>
+
+
+          <?php } ?>
+      </form>
+<!--    <button name="find">Find</button>-->
   </div>
     <div class="boxsp">
       <div class="sp">

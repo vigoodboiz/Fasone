@@ -8,7 +8,8 @@ if(!empty($_POST["name"]) && !empty($_POST["price"]) && $_FILES["img"]["size"] !
     $sale = $_POST["sale"];
     $thongtin = $_POST["thongtin"];
     $mota = $_POST["mota"];
-$query = "INSERT INTO `sanpham` (`id_sanpham`, `name`, `price`, `img`, `sale`, `thongtin`, `mota`) VALUES ('NULL', '$name', '$price', '$img', '$sale', '$thongtin', '$mota')";
+    $id_danhmuc = $_POST['category'];
+    $query = "INSERT INTO `sanpham` (`id_sanpham`, `name`, `price`, `sale`, `img`, `thongtin`, `mota`, `luotxem`, `id_danhmuc`) VALUES (NULL, '$name', '$price', '$sale', '$img', '$thongtin', '$mota', NULL, '$id_danhmuc')";
 connect($query);
 move_uploaded_file($_FILES["img"]["tmp_name"],"../src/image/".$_FILES["img"]["name"]);
 header("location: ../view/admin-view/products.php");
