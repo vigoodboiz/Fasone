@@ -22,6 +22,9 @@ include_once "../../model/category.php";
 <body>
 <main>
     <?php require "header.php"?>
+    <div class="banner">
+        <img src="../../src/image/banner.jpg" alt="">
+    </div>
     <div id="products" class="mb-4">
         <div class="text">
             <h1>Mặc ngay, yêu luôn</h1>

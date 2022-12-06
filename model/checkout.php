@@ -68,9 +68,9 @@ for ($i = 0; $i < sizeof($_SESSION['giohang']); $i++) {
 //
 //}
 // session_start();
- if(empty($_SESSION)){
-     header("location: ../login.php");
- }
+// if(empty($_SESSION)){
+//     header("location:../view/login.php");
+// }
 
 ?>
 
@@ -100,52 +100,38 @@ for ($i = 0; $i < sizeof($_SESSION['giohang']); $i++) {
     <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span class="text-muted">Thẻ của bạn</span>
+                <span class="text-muted">Sản phẩm</span>
                 <span class="badge badge-secondary badge-pill">3</span>
             </h4>
             <ul class="list-group mb-3 sticky-top">
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <?php
+                foreach($_SESSION['giohang'] as $product) {
+                    echo '<li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
-                        <h6 class="my-0">Tên sản phẩm</h6>
-                        <small class="text-muted">Mô tả ngắn gọn</small>
+                        <h6 class="my-0">'.$product[1].'</h6>
+                        <small class="text-muted">Số lượng: '.$product[3].'</small>
                     </div>
-                    <span class="text-muted">$12</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Second product</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">$8</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Third item</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">$5</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between bg-light">
-                    <div class="text-success">
-                        <h6 class="my-0">Promo code</h6>
-                        <small>EXAMPLECODE</small>
-                    </div>
-                    <span class="text-success">-$5</span>
-                </li>
+                    <span class="text-muted">'.$product[2].'</span>
+                </li>';
+
+                }
+                ?>
+
+
                 <li class="list-group-item d-flex justify-content-between">
-                    <span>Total (USD)</span>
+                    <span>Tổng tiền (VND)</span>
                     <strong> <?php
                         echo $tong ?></strong>
                 </li>
             </ul>
-            <form class="card p-2">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Promo code">
-                    <div class="input-group-append">
-                        <button type="submit" class="btn btn-secondary">Redeem</button>
-                    </div>
-                </div>
-            </form>
+<!--            <form class="card p-2">-->
+<!--                <div class="input-group">-->
+<!--                    <input type="text" class="form-control" placeholder="Promo code">-->
+<!--                    <div class="input-group-append">-->
+<!--                        <button type="submit" class="btn btn-secondary">Redeem</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </form>-->
         </div>
         <div class="col-md-8 order-md-1">
             <h4 class="mb-3">Địa chỉ thanh toán</h4>
@@ -157,16 +143,6 @@ for ($i = 0; $i < sizeof($_SESSION['giohang']); $i++) {
                         <div class="invalid-feedback"> Tên hợp lệ là bắt buộc. </div>
                     </div>
 
-                </div>
-                <div class="mb-3">
-                    <label for="username">Username</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><3</span>
-                        </div>
-                        <input type="text" class="form-control" id="username" placeholder="Ghi chú" required="" name="user">
-                        <div class="invalid-feedback" style="width: 100%;"> Your username is required. </div>
-                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="email">Email <span class="text-muted">(Optional)</span></label>
@@ -183,24 +159,33 @@ for ($i = 0; $i < sizeof($_SESSION['giohang']); $i++) {
                     <input type="text" class="form-control" id="numberphone" placeholder="0123456789" required="" name="numberphone">
                     <div class="invalid-feedback"> Vui lòng nhập số điện thoại của bạn. </div>
                 </div>
+                <div class="mb-3">
+                    <label for="username">Ghi chú</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><3</span>
+                        </div>
+                        <input type="text" class="form-control" id="username" placeholder="Ghi chú" required="" name="user">
+                        <div class="invalid-feedback" style="width: 100%;"> Your username is required. </div>
+                    </div>
+                </div>
 
                 <hr class="mb-4">
 
-                <hr class="mb-4">
                 <h4 class="mb-3">Payment</h4>
                 <div class="d-block my-3">
                     <div class="custom-control custom-radio">
                         <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
-                        <label class="custom-control-label" for="credit">Thẻ tín dụng</label>
+                        <label class="custom-control-label" for="credit">Thanh toan khi nhan hang</label>
                     </div>
-                    <div class="custom-control custom-radio">
-                        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
-                        <label class="custom-control-label" for="debit">Thẻ ghi nợ</label>
-                    </div>
-                    <div class="custom-control custom-radio">
-                        <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
-                        <label class="custom-control-label" for="paypal">Thanh toán khi nhận hàng</label>
-                    </div>
+<!--                    <div class="custom-control custom-radio">-->
+<!--                        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">-->
+<!--                        <label class="custom-control-label" for="debit">Thẻ ghi nợ</label>-->
+<!--                    </div>-->
+<!--                    <div class="custom-control custom-radio">-->
+<!--                        <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">-->
+<!--                        <label class="custom-control-label" for="paypal">Thanh toán khi nhận hàng</label>-->
+<!--                    </div>-->
                 </div>
 
                 <hr class="mb-4">
@@ -209,12 +194,12 @@ for ($i = 0; $i < sizeof($_SESSION['giohang']); $i++) {
         </div>
     </div>
     <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">© 2017-2019 Company Name</p>
-        <ul class="list-inline">
-            <li class="list-inline-item"><a href="#">Privacy</a></li>
-            <li class="list-inline-item"><a href="#">Terms</a></li>
-            <li class="list-inline-item"><a href="#">Support</a></li>
-        </ul>
+<!--        <p class="mb-1">© 2017-2019 Company Name</p>-->
+<!--        <ul class="list-inline">-->
+<!--            <li class="list-inline-item"><a href="#">Privacy</a></li>-->
+<!--            <li class="list-inline-item"><a href="#">Terms</a></li>-->
+<!--            <li class="list-inline-item"><a href="#">Support</a></li>-->
+<!--        </ul>-->
     </footer>
 </div>
 <script src="../src/js/checkout.js"></script>

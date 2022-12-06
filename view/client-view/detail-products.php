@@ -20,20 +20,24 @@ $row = $conn->query($sql)->fetchAll();
 	<title>Chi tiết sản phẩm</title>
 </head>
 <body>
-    <?php include 'header.php' ?>
+    <?php include 'header.php'?>
 <div class="detail-product">
-        <h1 style="margin-left: 20px;">Thông tin sản phẩm</h1>
+        <h1 style="margin-left: 30px;">Thông tin sản phẩm</h1>
         <br>
         <div class="info">
             <div class="picture">
                 <img src="../../src/image/<?php echo $products["img"]?>" alt="<?php echo $products["name"]?>">
             </div>
             <div class="infomation">
-                <h1 class="nameProduct"><?php echo $products["name"]?></h1>
-                <p class="priceProduct"><?php echo $products["price"]?> Vnd</p>
-                <h2 class="saleOff">saleOff: <strong style="color: red;"><?php echo $products["sale"]?> %</strong></h2>
-                    <br>
-                    <a href=""><button class="addItem">Add to cart</button></a>
+                    <div class="more-info">
+                    <h1 class="nameProduct"><?php echo $products["name"]?></h1>
+                    
+                    <p class="description">Thông tin sản phẩm: <?php echo $products["thongtin"]?></p>
+                </div>
+                
+                <p class="priceProduct" style="color: red"><?php echo $products["price"]?> Vnd</p>
+<!--                <h2 class="saleOff">saleOff: <strong style="color: red;">--><?php //echo $products["sale"]?><!-- %</strong></h2>-->
+<!--                    <br>-->
                 <?php foreach ($row as $key => $value){ ?>
                     <form method="POST" action="./cart.php?action=add&id=<?php echo $value["id_sanpham"]; ?>">
 
@@ -46,13 +50,11 @@ $row = $conn->query($sql)->fetchAll();
                         <input id="submit"  type="submit" name="addcart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />
                     </form>
                 <?php } ?>
+                <br><h4>Mô tả sản phẩm</h4>
+                    <p class="mota">Mo ta: <?php echo $products["mota"]?></p>
             </div>
         </div>
-        <div class="more-info">
-            <h1>Mô tả sản phẩm</h1>
-            <p class="mota"><?php echo $products["mota"]?></p>
-            <p class="description">Thông tin sản phẩm: <?php echo $products["thongtin"]?></p>
-        </div>
+        
     </div>
     <br><hr>
     <?php include 'footer.php' ?>

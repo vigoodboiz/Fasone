@@ -99,9 +99,9 @@ $products = $conn->query($query)->fetchAll();
                 <?php foreach($products as $value): ?>
                     <div class="item">
                         <div class="pic-item">
-                            <a href="./view/client-view/detail-products.php?id=<?php echo $value["id_sanpham"] ?>"><img src="../../src/image/<?php echo $value["img"] ?>" alt=""></a>
+                            <a href="detail-products.php?id=<?php echo $value["id_sanpham"] ?>"><img src="../../src/image/<?php echo $value["img"] ?>" alt=""></a>
                         </div>
-                        <h2><a href="./view/client-view/detail-products.php?id=<?php echo $value["id_sanpham"] ?>"><?php echo $value["name"] ?></a></h2>
+                        <h2><a href="detail-products.php?id=<?php echo $value["id_sanpham"] ?>"><?php echo $value["name"] ?></a></h2>
                         <p><?php echo $value["price"] ?>đ</p>
                         <small><?php echo $value["mota"] ?></small>
                     </div>
