@@ -1,6 +1,5 @@
 <?php
 include "../model/user.php";
-session_start();
 foreach($user as $value){
     if(isset($_POST["submit"])){
         if(!$_POST["name"] == "" && !$_POST["password"] == ""){

@@ -255,12 +255,16 @@ button{
     box-shadow: 5px 5px #888888;
 } */
 .info{
-    display: flex;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 10px;
     justify-content: left;
-    justify-items: center;
+}
+.picture{
+    text-align: center;
 }
 .picture img{
-    width: 70%;
+    width: 60%;
     border-radius: 20px;
     overflow: hidden;
     margin-left: 30px;
@@ -272,22 +276,12 @@ button{
 }
 .infomation p{
     font-size: 25px;
-    color: darkgrey;
+    color: gray;
     padding-bottom: 10px;
 }
-.infomation button{
-    width: 150px;
-    height: 50px;
-    font-size: 20px;
-    font-weight: 400;
-    background-color:crimson;
-    border-radius: 10px;
-}
+
 .infomation button:hover{
     color:rgb(79, 197, 64);
-}
-.more-info{
-    margin-left: 30px;
 }
 .more-info p{
     padding-top: 5px;

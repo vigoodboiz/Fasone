@@ -1,8 +1,8 @@
 <?php
 // session_start();
- if(empty($_SESSION)){
-     header("location: ../login.php");
- }
+// if(empty($_SESSION)){
+//     header("location: ../login.php");
+// }
 //     if($_SESSION["role"] == 1){
 //         header("location: ../admin/index.php");
 //     }
