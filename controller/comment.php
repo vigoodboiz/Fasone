@@ -1,8 +1,7 @@
 <?php
     session_start();
-    if(isset($_SESSION['id'])&&($_SESSION['id']>0)){
+    if(isset($_SESSION['name'])&&($_SESSION['name']>0)){
 
-    
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -2,6 +2,7 @@
 <?php
 $query = "select * from user";
 $item = getOne($query);
+
 ?>
 <header>
       <div class="information">
