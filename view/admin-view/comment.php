@@ -1,6 +1,7 @@
 <?php
 include_once "../../model/connect.php";
 include_once "../../model/comment.php";
+$dsbl = loadall_binhluan();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +12,7 @@ include_once "../../model/comment.php";
     <link rel="stylesheet" href="../../src/font/fontawesome-free-6.2.1-web/css/all.min.css">
     <link rel="stylesheet" href="../../src/css/main.css">
     <link rel="stylesheet" href="../../src/css/comment.css">
-    <title>Dashboard</title>
+    <title>Comment</title>
 </head>
 <body>
     <div class="khung">
@@ -31,7 +32,7 @@ include_once "../../model/comment.php";
                 <tr>
                     <th>Id</th>
                     <th>Comment conten</th>
-                    <th>Commentator</th>
+                    <th>Comment ator</th>
                     <th>Comment date</th>
                     <th>Action</th>
                 </tr>
@@ -41,10 +42,10 @@ include_once "../../model/comment.php";
                     <tr>
                         <td><?php echo $key + 1?></td>
                         <td><?php echo $value["noidung"]?></td>
-                        <td><?php echo $value["name_user"]?></td>
+                        <td><?php echo $value["name"]?></td>
                         <td><?php echo $value["ngaybinhluan"]?></td>
                         <td class="conten-action">
-                            <a href="./controller/delete-comment.php?id <?php echo $value["id"]?>" onclick="if (!confirm('Bạn có muốn xóa bình luận không?')) { return false }"><button>Delete comment</button></a>
+                            <a href="../../controller/delete-comment.php?id=<?php echo $value["id_binhluan"]?>"><button>Delete</button></a>
                         </td>
                     </tr>
                     <?php endforeach ?>
