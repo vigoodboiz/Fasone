@@ -257,15 +257,11 @@ button{
 .info{
     display: grid;
     grid-template-columns: 50% 50%;
-<<<<<<< HEAD
-    gap: 20px;
-=======
     gap: 10px;
     justify-content: left;
 }
 .picture{
     text-align: center;
->>>>>>> 47e89d3c0d770417a3527b8d0d8c82d16b47da8e
 }
 .picture img{
     width: 60%;
@@ -290,10 +286,6 @@ button{
 .infomation button:hover{
     color:rgb(79, 197, 64);
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 47e89d3c0d770417a3527b8d0d8c82d16b47da8e
 .more-info p{
     padding-top: 5px;
 }
@@ -457,3 +449,4 @@ p{
 .title{
     margin: 40px;
 }
+/* Bình luận*/

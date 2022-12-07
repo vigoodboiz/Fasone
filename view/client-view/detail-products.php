@@ -1,13 +1,14 @@
 <?php
 require "../../connect.php";
+require "../../model/comment.php";
     include_once '../../model/connect.php';
     include_once '../../model/detail-products.php';
     $id = $_GET['id'];
 $sql = "select * from `sanpham` WHERE `sanpham`.`id_sanpham` = '$id'";
 $row = $conn->query($sql)->fetchAll();
 
-$sqlcomment = "SELECT * from `binhluan`";
-$comments = $conn->query($sqlcomment)->fetchAll();
+$dsbl = loadall_binhluan();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +21,8 @@ $comments = $conn->query($sqlcomment)->fetchAll();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
-	<title>Chi tiết sản phẩm</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Chi tiết sản phẩm</title>
 </head>
 <body>
     <?php include 'header.php'?>
@@ -57,17 +59,19 @@ $comments = $conn->query($sqlcomment)->fetchAll();
                     <p class="mota">Mo ta: <?php echo $products["mota"]?></p>
             </div>
         </div>
-        <div class="cmt">
-            <h1>Bình luận</h1>
-            <?php foreach($comments as $key): 
-                extract($key);
-                ?>
-                <span><?= $name_user?></span>
-                <span><?= $noidung?></span>
-            <?php endforeach; ?>
-            <iframe src="../../controller/comment.php?id_sanpham=<?=$_GET['id'] ?>" width="100%" height="400px" frameborder="0"></iframe>
+        <br>
+        <div class="mt-14">
+            <h2 class="">Bình luận</h2><br>
+            <?php
+        foreach ($dsbl as $bl) {
+         extract($bl);
+        echo '<h3 class="text-red-500">Name: '.$name.'</h3>';
+         echo '<p>'.$noidung.'</p>';               
+             }
+     ?>
+           
         </div>
-        
+        <iframe src="../../controller/comment.php?id_sanpham=<?=$_GET['id'] ?>" width="100%" height="120px" frameborder="0"></iframe>
     </div>
     <br><hr>
     <?php include 'footer.php' ?>
