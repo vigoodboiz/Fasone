@@ -6,6 +6,8 @@ require "../../connect.php";
 $sql = "select * from `sanpham` WHERE `sanpham`.`id_sanpham` = '$id'";
 $row = $conn->query($sql)->fetchAll();
 
+$sqlcomment = "SELECT * from `binhluan`";
+$comments = $conn->query($sqlcomment)->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,9 +23,9 @@ $row = $conn->query($sql)->fetchAll();
 	<title>Chi tiết sản phẩm</title>
 </head>
 <body>
-    <?php include '../../view/header.php'?>
+    <?php include 'header.php'?>
 <div class="detail-product">
-        <h1 style="margin-left: 20px;">Thông tin sản phẩm</h1>
+        <h1 style="margin-left: 30px;">Thông tin sản phẩm</h1>
         <br>
         <div class="info">
             <div class="picture">
@@ -32,15 +34,15 @@ $row = $conn->query($sql)->fetchAll();
             
             <div class="infomation">
                     <div class="more-info">
-                    <h1>Thông tin sản phẩm</h1>
+
+                    <h1 class="nameProduct"><?php echo $products["name"]?></h1>
                     
-                    <p class="description"> <?php echo $products["thongtin"]?></p>
-                    <p class="mota">Mô tả: <?php echo $products["mota"]?></p>
+                    <p class="description">Thông tin sản phẩm: <?php echo $products["thongtin"]?></p>
                 </div>
-                <h1 class="nameProduct"><?php echo $products["name"]?></h1>
-                <p class="priceProduct"> Giá: <?php echo $products["price"]?> Vnd</p>
-                <h2 class="saleOff">saleOff: <strong style="color: red;"><?php echo $products["sale"]?> %</strong></h2>
-                    <br>
+                
+                <p class="priceProduct" style="color: red"><?php echo $products["price"]?> Vnd</p>
+<!--                <h2 class="saleOff">saleOff: <strong style="color: red;">--><?php //echo $products["sale"]?><!-- %</strong></h2>-->
+<!--                    <br>-->
                 <?php foreach ($row as $key => $value){ ?>
                     <form method="POST" action="./cart.php?action=add&id=<?php echo $value["id_sanpham"]; ?>">
                         <input type="hidden" name="hinh" value="<?php echo $value['img']; ?>">
@@ -51,14 +53,23 @@ $row = $conn->query($sql)->fetchAll();
                         <input id="submit"  type="submit" name="addcart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />
                     </form>
                 <?php } ?>
+                <br><h4>Mô tả sản phẩm</h4>
+                    <p class="mota">Mo ta: <?php echo $products["mota"]?></p>
             </div>
         </div>
         <div class="cmt">
             <h1>Bình luận</h1>
+            <?php foreach($comments as $key): 
+                extract($key);
+                ?>
+                <span><?= $name_user?></span>
+                <span><?= $noidung?></span>
+            <?php endforeach; ?>
             <iframe src="../../controller/comment.php?id_sanpham=<?=$_GET['id'] ?>" width="100%" height="400px" frameborder="0"></iframe>
         </div>
+        
     </div>
     <br><hr>
-    <?php include '../../view/footer.php'?>
+    <?php include 'footer.php' ?>
 </body>
 </html>

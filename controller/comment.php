@@ -1,7 +1,15 @@
 <?php
     session_start();
-    if(isset($_SESSION['name'])&&($_SESSION['name']>0)){
+    // if(isset($_SESSION['name'])&&($_SESSION['name']>0)){
+        require "../model/connect.php";
 
+        if (isset($_POST["guibinhluan"])) {
+            $noidung = $_POST["noidung"];
+        
+            $query = "insert into binhluan values(null,'$noidung',null,null,null,null)";
+            connect($query);
+            // $result = $connect->prepare($sql);
+        }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +29,7 @@
 </body>
 </html>
 <?php
-    }else{
-        echo "<a href='../view/login.php' target='_parent'>Đăng nhập ngay để bình luận</a>";
-    }
+    // }else{
+    //     echo "<a href='../view/login.php' target='_parent'>Đăng nhập ngay để bình luận</a>";
+    // }
 ?>

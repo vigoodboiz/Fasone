@@ -3,7 +3,7 @@ include_once "../../model/connect.php";
 $query = "select * from danhmuc";
 $category = getAll($query);
 $id_sanpham = $_GET["id"];
-$query = "select * from sanpham where id_sanpham=$id_sanpham";
+$query = "select * from sanpham where id_sanpham='$id_sanpham'";
 $item = getOne($query);
 ?>
 <!DOCTYPE html>
