@@ -60,13 +60,14 @@ $dsbl = loadall_binhluan();
             </div>
         </div>
         <br>
-        <div class="mt-14">
-            <h2 class="">Bình luận</h2><br>
+        <div class="mt-14 ml-5">
+            <h2 class="text-2xl">Bình luận</h2><br>
             <?php
         foreach ($dsbl as $bl) {
          extract($bl);
-        echo '<h3 class="text-red-500">Name: '.$name.'</h3>';
-         echo '<p>'.$noidung.'</p>';               
+        echo '<h2 class="text-red-500 text-xl">Name: ' .$name.'</h2>';
+        echo '<span class="text-xs">Ngày bình luận: ' .$ngaybinhluan.'</span>';
+         echo '<p>Nội dung:'.$noidung.'</p>';               
              }
      ?>
            

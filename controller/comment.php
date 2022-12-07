@@ -6,7 +6,8 @@
         if (isset($_POST["guibinhluan"])) {
             $noidung= $_POST['noidung'];
             $name= $_POST['name'];
-            $query = "INSERT into binhluan (noidung, name) values ('$noidung','$name')";
+            $ngaybinhluan=date(' d/m/Y');
+            $query = "INSERT into binhluan (noidung, name, ngaybinhluan) values ('$noidung','$name','$ngaybinhluan')";
             connect($query);
             // $result = $connect->prepare($sql);
     
