@@ -71,6 +71,7 @@ require "../../model/cart.php"
             <th>Tên sản phẩm</th>
             <th>Đơn giá</th>
             <th>Số lượng</th>
+            <th>Size</th>
             <th>Thành tiền ($)</th>
         </tr>
         <?php showgiohang(); ?>
@@ -80,7 +81,7 @@ require "../../model/cart.php"
     <form action="../../model/checkout.php">
         <input type="submit" value="ĐỒNG Ý ĐẶT HÀNG" name="dongydathang">
         <a href="cart.php?delcart=1"><input type="button" value="XÓA TOÀN BỘ GIỎ HÀNG"></a>
-        <a href="index1.php"><input type="button" value="TIẾP TỤC ĐẶT HÀNG"></a>
+        <a href="../../index.php#products"><input type="button" value="TIẾP TỤC ĐẶT HÀNG"></a>
     </form>
 </div>
 </div>

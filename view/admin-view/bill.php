@@ -6,12 +6,6 @@ $bill_detail = $conn->query($query2)->fetchAll();
 $query = "select * from oders b inner join khach_hang c where b.id_khach_hang = c.id_khach_hang";
 $bill = $conn->query($query)->fetchAll();
 //
-if(isset($_POST['capnhat'])&& isset($_POST["ds"]) && isset($_POST["id_hoadon"])){
-    $ds = $_POST['ds'];
-    $id = $_POST['id_hoadon'];
-    $update = "UPDATE `oders` SET `status` = '$ds' WHERE `oders`.`id_oders` = '$id'";
-    $rows = $conn->exec($update);
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +22,9 @@ if(isset($_POST['capnhat'])&& isset($_POST["ds"]) && isset($_POST["id_hoadon"]))
 <div class="khung">
     <?php include 'aside.php'?>
     <main>
+
         <?php include 'header.php'?>
+
         <div class="banner">
             <div class="conten-text">
                 <h1>Hóa đơn</h1>
@@ -45,12 +41,12 @@ if(isset($_POST['capnhat'])&& isset($_POST["ds"]) && isset($_POST["id_hoadon"]))
 <!--                <div class="product-action">-->
 <!--                    <a href="../view/main-view/add-new-category.php"><button>Add new category</button></a>-->
 <!--                </div>-->
-                <div class="product-form">
-                    <form action="category.php" method="POST">
-                        <input type="text" name="findname" placeholder="Search name category">
-                        <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </form>
-                </div>
+<!--                <div class="product-form">-->
+<!--                    <form action="category.php" method="POST">-->
+<!--                        <input type="text" name="findname" placeholder="Search name category">-->
+<!--                        <button><i class="fa-solid fa-magnifying-glass"></i></button>-->
+<!--                    </form>-->
+<!--                </div>-->
             </div>
         </div>
         <table border=1>
@@ -71,27 +67,28 @@ if(isset($_POST['capnhat'])&& isset($_POST["ds"]) && isset($_POST["id_hoadon"]))
                     <td><?php echo $value["ngaymua"]?></td>
                     <td><?php echo $value["total"]?></td>
                     <td>
+                        <form method="post" action="cnbill.php">
                             <select name="ds" style="border: none; text-align: center; font-size: 20px">
-                                <option value="1" <?php echo($value['status']==1)?"selected":"" ?> >Chưa thanh toán</option>
-                                <option value="0" <?php echo($value['status']==0)?"selected":"" ?>>Đã thanh toán</option>
+                                <option value="3" <?php echo($value['status']==3)?"selected":"" ?>>Đã thanh toán</option>
+                                <option value="1" <?php echo($value['status']==1)?"selected":"" ?>>Chưa thanh toán</option>
+                                <option value="2" <?php echo($value['status']==2)?"selected":"" ?>>Đang giao hàng</option>
 
                             </select>
+                        </form>
                           </td>
                     <td class="conten-action">
                         <a href="./bill_detail.php?id=<?php echo $value["id_oders"]?>"><button>Detail</button></a>
                         <a href="../../controller/delete-bill.php?id=<?php echo $value["id_oders"]?>" onclick="if (!confirm('Bạn có muốn xóa hóa đơn không?')) { return false }"><button>Delete Bill</button></a>
+                        <a href="cnbill.php?id=<?php echo $value["id_oders"]?>" style="width: 100px;height: 50px;font-size: 15px;font-weight: 400;color: var(--color);margin: 10px 20px;border-radius: 10px;text-decoration: none">Uppdate</a>
                     </td>
                 </tr>
 
             <?php } ?>
             </tbody>
         </table>
-        <form method="post" action="">
-            <?php foreach ($bill as $key => $value) { ?>
-            <input type="hidden" name="id_hoadon" value="<?php echo $value["id_oders"] ?>">
-            <?php } ?>
-            <input type="submit" name="capnhat" value="CAP NHAT HOA DON">
-        </form>
+
+
+<!--            <input type="submit" name="capnhat" value="CẬP NHẬT HÓA ĐƠN">-->
     </main>
 </div>
 </body>

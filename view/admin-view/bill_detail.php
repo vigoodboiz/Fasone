@@ -48,6 +48,7 @@ $ct_bill = $conn->query($query3)->fetchAll();
                 <th>Sản phẩm</th>
                 <th>Hình</th>
                 <th>Số lượng</th>
+                <th>Size</th>
                 <th>Đơn giá</th>
                 <th>Thành tiền</th>
             </tr>
@@ -56,6 +57,7 @@ $ct_bill = $conn->query($query3)->fetchAll();
                 <td> <?php echo $value['name'] ?> </td>
                 <td> <img src="../../src/image/<?php echo $value['img'] ?>" style="width: 100px;height: 100px"> </td>
                 <td> <?php echo $value['soluong'] ?> </td>
+                <td> <?php echo $value['size'] ?> </td>
                 <td> <?php echo $value['price'] ?>  </td>
                 <td><?php echo $value['soluong']*$value['price'] ?></td>
             </tr>

@@ -12,5 +12,9 @@
 //    header("location:../login.php");
 //}
 $query = "select * from binhluan";
-$comment = getAll($query);
+function loadall_binhluan(){
+    $query="select * from binhluan order by id_binhluan desc";
+    $listbinhluan = connect($query);
+    return $listbinhluan;
+}
 ?>

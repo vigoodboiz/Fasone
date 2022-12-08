@@ -15,6 +15,7 @@ if(isset($_POST['addcart'])&&($_POST['addcart'])){
     $gia=$_POST['gia'];
     $soluong=$_POST['soluong'];
     $id = $_POST['id'];
+    $size = $_POST['size'];
 
     //kiem tra sp co trong gio hang hay khong?
 
@@ -34,7 +35,7 @@ if(isset($_POST['addcart'])&&($_POST['addcart'])){
     //neu khong trung sp trong gio hang thi them moi
     if($fl==0){
         //them moi sp vao gio hang
-        $sp=[$hinh,$tensp,$gia,$soluong,$id];
+        $sp=[$hinh,$tensp,$gia,$soluong,$id,$size];
         $_SESSION['giohang'][]=$sp;
     }
 
@@ -110,8 +111,10 @@ for ($i = 0; $i < sizeof($_SESSION['giohang']); $i++) {
                     <div>
                         <h6 class="my-0">'.$product[1].'</h6>
                         <small class="text-muted">Số lượng: '.$product[3].'</small>
+                        <br>
+                        <small class="text-muted">Size: '.$product[5].'</small>
                     </div>
-                    <span class="text-muted">'.$product[2].'</span>
+                    <span class="text-muted">'.$product[2].' VND</span>
                 </li>';
 
                 }
@@ -121,7 +124,7 @@ for ($i = 0; $i < sizeof($_SESSION['giohang']); $i++) {
                 <li class="list-group-item d-flex justify-content-between">
                     <span>Tổng tiền (VND)</span>
                     <strong> <?php
-                        echo $tong ?></strong>
+                        echo $tong ?> VND</strong>
                 </li>
             </ul>
 <!--            <form class="card p-2">-->

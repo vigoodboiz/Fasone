@@ -3,7 +3,6 @@ include_once "../../model/connect.php";
 include_once "../../model/user.php";
 // $query = "select * from user";
 // $item = getAll($query);
-session_start();
 ?>
 <aside>
     <div class="logo">
