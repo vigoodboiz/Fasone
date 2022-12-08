@@ -45,7 +45,7 @@ if (isset($_POST['save'])) {
     foreach($_SESSION['giohang'] as $product) {
 //        echo $product[1]."</br>";
 //        die();
-        $query = "INSERT INTO `oder_detail` (`id_oder_detail`, `id_oders`, `id_sanpham`, `sanpham`, `soluong`, `price`) VALUES (NULL, '$last_id_oders', '$product[4]', '$product[1]', '$product[3]', '$product[2]')";
+        $query = "INSERT INTO `oder_detail` (`id_oder_detail`, `id_oders`, `id_sanpham`, `sanpham`, `soluong`,`size`, `price`) VALUES (NULL, '$last_id_oders', '$product[4]', '$product[1]', '$product[3]','$product[5]', '$product[2]')";
         $row = $conn->exec($query);
 
         $last_id_oder_detail = $conn->lastInsertId();

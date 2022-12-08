@@ -40,6 +40,20 @@ session_start();
                 <input type="file" name="img"><br>
                 <span style="color: red;"><?php echo $_SESSION["errImg"]?></span>
                 <br>
+
+                <span>Size sản phẩm</span><br>
+                <input type="text" name="sz1" style="width: 100px" value="M">
+                <input type="text" name="sz2" style="width: 100px" value="L">
+                <input type="text" name="sz3" style="width: 100px" value="XL"><br>
+                <span style="color: red;"></span>
+                <br>
+<!--                <span>Màu sản phẩm</span><br>-->
+<!--                <input type="text" name="sz1" style="width: 100px" value="M">-->
+<!--                <input type="text" name="sz2" style="width: 100px" value="L">-->
+<!--                <input type="text" name="sz3" style="width: 100px" value="XL"><br>-->
+<!--                <span style="color: red;"></span>-->
+<!--                <br>-->
+
                 <span>Thông tin sản phẩm</span><br>
                 <input type="text" name="thongtin" placeholder="Nhập thông tin sản phẩm"><br>
                 <span style="color: red;"><?php echo $_SESSION["errInformation"]?></span>
@@ -54,6 +68,10 @@ session_start();
                        <option class="option" value="<?php echo $value["id_danhmuc"]?>"><?php echo $value["name"]?></option>
                     <?php endforeach?>
                 </select><br>
+                <span>Số lượng</span><br>
+                <textarea name="soluong" id="" cols="30" rows="10" placeholder="Nhập số lượng sản phẩm"></textarea><br>
+                <span style="color: red;"></span>
+                <br>
                 <button name="submit">Add new products</button>
             </form>
             </div>

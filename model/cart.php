@@ -24,6 +24,7 @@ if(isset($_POST['addcart'])&&($_POST['addcart'])){
     $gia=$_POST['gia'];
     $soluong=$_POST['soluong'];
     $id = $_POST['id'];
+    $size = $_POST['size'];
 
     //kiem tra sp co trong gio hang hay khong?
 
@@ -43,7 +44,7 @@ if(isset($_POST['addcart'])&&($_POST['addcart'])){
     //neu khong trung sp trong gio hang thi them moi
     if($fl==0){
         //them moi sp vao gio hang
-        $sp=[$hinh,$tensp,$gia,$soluong,$id];
+        $sp=[$hinh,$tensp,$gia,$soluong,$id,$size];
         $_SESSION['giohang'][]=$sp;
     }
 
@@ -63,10 +64,11 @@ function showgiohang(){
                             <td>'.($i+1).'</td>
                             <td><img height="100px" src="../../src/image/'.$_SESSION['giohang'][$i][0].'"></td>
                             <td>'.$_SESSION['giohang'][$i][1].'</td>
-                            <td>'.$_SESSION['giohang'][$i][2].'</td>
+                            <td>'.$_SESSION['giohang'][$i][2].' VND</td>
                             <td>'.$_SESSION['giohang'][$i][3].'</td>
+                            <td>'.$_SESSION['giohang'][$i][5].'</td>
                             <td>
-                                <div>'.$tt.'</div>
+                                <div>'.$tt.' VND</div>
                             </td>
                             <td>
                                 <a href="cart.php?delid='.$i.'">Xóa</a>
@@ -76,7 +78,7 @@ function showgiohang(){
             echo '<tr>
                         <th colspan="5">Tổng đơn hàng</th>
                         <th>
-                            <div>'.$tong.'</div>
+                            <div>'.$tong.' VND</div>
                         </th>
     
                     </tr>';
